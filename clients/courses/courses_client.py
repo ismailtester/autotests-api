@@ -6,7 +6,7 @@ class GetCoursesQueryDict(TypedDict):
     """
     Описание структуры запроса на получение списка курсов.
     """
-    userId: str | None
+    userId: str
 
 class CreateCourseRequestDict(TypedDict):
     """
