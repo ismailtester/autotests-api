@@ -2,7 +2,48 @@ from httpx import Response
 from clients.api_client import APIClient
 from typing import TypedDict
 
-from clients.private_http_builder import AutheticationUserDict, get_private_http_client
+from clients.private_http_builder import AuthenticationUserDict, get_private_http_client
+
+
+class Exercise(TypedDict):
+    """
+    Описание структуры запроса упражнения.
+    """
+    id: str
+    title: str
+    courseId: str
+    maxScore: int
+    minScore: int
+    orderIndex: int | None
+    description: str
+    estimatedTime: str
+
+
+class GetExerciseResponseDict(TypedDict):
+    """
+    Описание структуры запроса на получение информации об определенном упражнении.
+    """
+    exercise: Exercise
+
+class GetExercisesResponseDict(TypedDict):
+    """
+    Описание структуры запроса на получение информации об упражнениях определенного курса.
+    """
+    exercises: list[Exercise]
+
+
+class CreateExerciseResponseDict(TypedDict):
+    """
+    Описание структуры запроса на создание упражнения.
+    """
+    exercise: Exercise
+
+class UpdateExerciseResponseDict(TypedDict):
+    """
+    Описание структуры запроса на обновление упражнения.
+    """
+    exercise: Exercise
+
 
 
 class GetExercisesQueryDict(TypedDict):
@@ -19,11 +60,9 @@ class CreateExercisesRequestDict(TypedDict):
     courseId: str
     maxScore: int
     minScore: int
-    orderIndex: int | None
+    orderIndex: int
     description: str
     estimatedTime: str
-
-
 
 
 class UpdateExercisesRequestDict(TypedDict):
@@ -56,7 +95,7 @@ class ExercisesClient(APIClient):
 
     def get_exercise_api(self, exercise_id: str) -> Response:
         """
-        Метод получения упражнения по exercise_id.
+        Метод получения определенного упражнения по exercise_id.
 
         :param exercise_id: Идентификатор упражнения.
         :return: Ответ от сервера в виде объекта httpx.Response
@@ -91,5 +130,20 @@ class ExercisesClient(APIClient):
         """
         return self.delete(f"/api/v1/exercises/{exercise_id}")
 
-def get_exercises_client(user: AutheticationUserDict) -> ExercisesClient:
+    def get_exercise(self, exercise_id: str) -> GetExerciseResponseDict:
+        response = self.get_exercise_api(exercise_id)
+        return response.json()
+
+    def get_exercises(self, query: GetExercisesQueryDict) -> GetExercisesResponseDict:
+        response = self.get_exercises_api(query)
+        return response.json()
+
+    def create_exercise(self, request: CreateExercisesRequestDict) -> CreateExerciseResponseDict:
+        response = self.create_exercise_api(request)
+        return response.json()
+
+    def update_exercise(self, exercise_id: str, request: UpdateExercisesRequestDict) -> UpdateExerciseResponseDict:
+        response = self.update_exercise_api(exercise_id, request)
+        return response.json()
+def get_exercises_client(user: AuthenticationUserDict) -> ExercisesClient:
     return ExercisesClient(client=get_private_http_client(user))

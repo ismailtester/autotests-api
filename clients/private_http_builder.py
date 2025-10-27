@@ -2,15 +2,15 @@ from httpx import Client
 from clients.authentication.authentication_client import get_authentification_client, LoginRequestDict
 from typing import TypedDict
 
-class AutheticationUserDict(TypedDict):  # Структура данных пользователя для авторизации
+class AuthenticationUserDict(TypedDict):  # Структура данных пользователя для авторизации
     email: str
     password: str
 
 
-def get_private_http_client(user: AutheticationUserDict) -> Client:
+def get_private_http_client(user: AuthenticationUserDict) -> Client:
     """
     Функция создает экземпляр httpx.Client с аутентификацией пользователя.
-    :param user: Объект AutheticationUserDict с email и паролем пользователя
+    :param user: Объект AuthenticationUserDict с email и паролем пользователя
     :return: Готовый к использованию объект httpx.Client c установленным заголовком Authorization.
     """
 
