@@ -1,5 +1,7 @@
-from clients.courses.courses_client import get_courses_client, CreateCourseRequestDict
-from clients.exercises.exercises_client import get_exercises_client, CreateExercisesRequestDict
+from clients.courses.courses_client import get_courses_client
+from clients.courses.courses_schema import CreateCourseRequestSchema
+from clients.exercises.exercises_client import get_exercises_client
+from clients.exercises.exercises_schema import CreateExercisesRequestSchema
 from clients.files.files_client import get_files_client
 from clients.files.files_schema import CreateFileRequestSchema
 from clients.private_http_builder import AuthenticationUserSchema
@@ -38,14 +40,14 @@ print(f"\nCreated file data:\n {create_file_response}")
 
 courses_client = get_courses_client(authentication_user)
 
-create_course_request = CreateCourseRequestDict(
+create_course_request = CreateCourseRequestSchema(
     title="Python",
-    maxScore=100,
-    minScore=10,
+    max_score=100,
+    min_score=10,
     description="Python API course",
-    estimatedTime="2 weeks",
-    previewFileId=create_file_response.file.id,
-    createdByUserId=create_user_response.user.id)
+    estimated_time="2 weeks",
+    preview_file_id=create_file_response.file.id,
+    created_by_user_id=create_user_response.user.id)
 
 create_course_response = courses_client.create_course(create_course_request)
 print(f"\nCreated course data: \n {create_course_response}")
@@ -53,14 +55,14 @@ print(f"\nCreated course data: \n {create_course_response}")
 
 exercises_client = get_exercises_client(authentication_user)
 
-create_exercise_request = CreateExercisesRequestDict(
+create_exercise_request = CreateExercisesRequestSchema(
     title= "Практика использования API-клиентов",
-    courseId=create_course_response['course']['id'],
-    maxScore= 100,
-    minScore= 0,
-    orderIndex= 1,
+    course_id=create_course_response.course.id,
+    max_score= 100,
+    min_score= 10,
+    order_index= 1,
     description= "Практикуемся в использовании API клиента exercise",
-    estimatedTime= "1 hour",
+    estimated_time= "1 hour",
 )
 
 create_exercise_response = exercises_client.create_exercise(create_exercise_request)
