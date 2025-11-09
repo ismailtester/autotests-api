@@ -1,32 +1,30 @@
-from pydantic import BaseModel, EmailStr, ConfigDict
-from pydantic.alias_generators import to_camel
+from pydantic import BaseModel, Field, EmailStr
 
 
 class UserSchema(BaseModel):
     """
-    Модель пользователя, описывает основные поля профиля.
+    Описание структуры пользователя.
     """
-    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
     id: str
     email: EmailStr
-    last_name: str
-    first_name: str
-    middle_name: str
+    last_name: str = Field(alias="lastName")
+    first_name: str = Field(alias="firstName")
+    middle_name: str = Field(alias="middleName")
 
-class CreateUserResponseSchema(BaseModel):
-    """
-    Модель ответа на успешное создание пользователя.
-    """
-    user: UserSchema
 
 class CreateUserRequestSchema(BaseModel):
     """
-    Модель запроса на создание пользователя POST /api/v1/users
+    Описание структуры запроса на создание пользователя.
     """
-    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
     email: EmailStr
     password: str
-    last_name: str
-    first_name: str
-    middle_name: str
+    last_name: str = Field(alias="lastName")
+    first_name: str = Field(alias="firstName")
+    middle_name: str = Field(alias="middleName")
 
+
+class CreateUserResponseSchema(BaseModel):
+    """
+    Описание структуры ответа создания пользователя.
+    """
+    user: UserSchema
