@@ -6,14 +6,6 @@ from tools.fakers import get_random_email
 
 public_users_client = get_public_users_client()
 
-# create_user_request = CreateUserRequestDict(
-#     email = get_random_email(),
-#     password="string",
-#     lastName="string",
-#     firstName="string",
-#     middleName="string"
-# )
-
 create_user_request = CreateUserRequestSchema(
     email=get_random_email(),
     password="string",
