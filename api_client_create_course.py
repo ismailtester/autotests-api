@@ -3,20 +3,13 @@ from clients.courses.courses_schema import CreateCourseRequestSchema
 from clients.files.files_client import get_files_client
 from clients.private_http_builder import AuthenticationUserSchema
 from clients.users.public_users_client import get_public_users_client
-from tools.fakers import fake
 from clients.users.users_schema import CreateUserRequestSchema
 from clients.files.files_schema import CreateFileRequestSchema
 
 
 public_users_client = get_public_users_client()
 
-create_user_request = CreateUserRequestSchema(
-    email=fake.email(),
-    password="string",
-    last_name="string",
-    first_name="string",
-    middle_name="string"
-)
+create_user_request = CreateUserRequestSchema()
 
 create_user_response = public_users_client.create_user(create_user_request)
 print(f"\nCreated user data: \n{create_user_response}")
@@ -30,8 +23,6 @@ files_client = get_files_client(authetication_user)
 
 
 create_file_request = CreateFileRequestSchema(
-    filename="image.png",
-    directory = "courses",
     upload_file="./testdata/files/image.png"
 )
 create_file_response = files_client.create_file(create_file_request)
@@ -40,11 +31,6 @@ print(f"\nCreated file data:\n {create_file_response}")
 courses_client = get_courses_client(authetication_user)
 
 create_course_request = CreateCourseRequestSchema(
-    title="Python",
-    maxScore=100,
-    minScore=10,
-    description="Python API course",
-    estimatedTime="2 weeks",
     previewFileId=create_file_response.file.id,
     createdByUserId=create_user_response.user.id)
 

@@ -82,7 +82,7 @@ class Fake:
         Генерирует строку с предполагаемым временем (например '2 weeks')
         :return: Строка с предполагаемым временем
         """
-        return f"{self.faker.integer(1, 10)} weeks"
+        return f"{self.integer(1, 10)} weeks"
 
     def max_score(self) -> int:
         """
