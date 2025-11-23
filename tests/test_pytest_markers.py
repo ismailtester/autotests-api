@@ -84,3 +84,15 @@ python -m pytest -s -v -m "not smoke"
 #     @pytest.mark.smoke
 #     def test_signup(self):
 #         ...
+
+# @pytest.mark.slow
+# def test_heavy_calculation():
+#     pass
+#
+# @pytest.mark.integration
+# def test_integration_with_external_api():
+#     pass
+#
+# @pytest.mark.smoke
+# def test_quick_check():
+#     pass
