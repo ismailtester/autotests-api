@@ -17,6 +17,13 @@ def assert_create_user_response(request: CreateUserRequestSchema, response: Crea
     assert_equal(response.user.middle_name, request.middle_name, "middle_name")
 
 def assert_user(actual: UserSchema, expected: UserSchema):
+    """
+    Проверяет, что фактические данные пользователя соответствуют ожидаемым.
+
+    :param actual: Фактические данные пользователя.
+    :param expected: Ожидаемые данные пользователя.
+    :raises AssertionError: Если хотя бы одно поле не совпадает.
+    """
     assert_equal(actual.id, expected.id, "id"),
     assert_equal(actual.email, expected.email, "email"),
     assert_equal(actual.last_name, expected.last_name, "last_name"),
