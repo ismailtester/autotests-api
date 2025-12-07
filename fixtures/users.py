@@ -17,15 +17,15 @@ class UserFixture(BaseModel):
     response: CreateUserResponseSchema
     @property
     def email(self) -> EmailStr:
-        return self.request.email
+        return self.email
 
     @property
     def password(self) -> str:
-        return self.request.password
+        return self.password
 
     @property
     def authentication_user(self):
-        return AuthenticationUserSchema(email=self.request.email, password=self.request.password)
+        return AuthenticationUserSchema(email=self.email, password=self.request.password)
 
 
 
