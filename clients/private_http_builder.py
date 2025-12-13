@@ -1,16 +1,22 @@
 from httpx import Client
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from clients.authentication.authentication_client import get_authentification_client
 from clients.authentication.authentication_schema import LoginRequestSchema
+from cachetools import TTLCache, cached
+from datetime import timedelta
 
-
+#ТУТ НУЖЕН РЕФАКТОРИНГ
 
 
 class AuthenticationUserSchema(BaseModel):  # Структура данных пользователя для авторизации
+    model_config = ConfigDict(frozen=True)
     email: str
     password: str
 
+cache = TTLCache(maxsize=128, ttl=timedelta(minutes=30).total_seconds())
 
+
+@cached(cache)
 def get_private_http_client(user: AuthenticationUserSchema) -> Client:
     """
     Функция создает экземпляр httpx.Client с аутентификацией пользователя.
