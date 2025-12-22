@@ -1,0 +1,44 @@
+from clients.errors_schema import ValidationErrorSchema, ValidationErrorResponseSchema, InternalErrorResponseSchema
+from tools.assertions.base import assert_equal, assert_length
+
+
+def assert_validation_error(actual: ValidationErrorSchema, expected: ValidationErrorSchema):
+    """
+    Проверяет, что объект ошибки валидации соответствует ожидаемому значению.
+
+    :param actual: Фактическая ошибка.
+    :param expected: Ожидаемая ошибка.
+    :raises AssertionError: Если значения полей не совпадают.
+    """
+    assert_equal(actual.type, expected.type, name="type")
+    assert_equal(actual.input, expected.input, name="input")
+    assert_equal(actual.context, expected.context, name="context")
+    assert_equal(actual.location, expected.location, name="location")
+    assert_equal(actual.message, expected.message, name="message")
+
+def assert_validation_error_response(actual: ValidationErrorResponseSchema, expected: ValidationErrorResponseSchema):
+
+    """
+    Проверяет, что объект ответа API с ошибками валидации (`ValidationErrorResponseSchema`)
+    соответствует ожидаемому значению.
+
+    :param actual: Фактический ответ API.
+    :param expected: Ожидаемый ответ API.
+    :raises AssertionError: Если значения полей не совпадают.
+    """
+
+    assert_length(actual.details, expected.details, name="details")
+
+    #Юзаем данный способ прохода по каждому словарю в details потому что если будем сравнивать в лоб
+    #то у нас сама ошибка будет огромной и её трудно будет дебажжить.
+    #НООО У ЭТОГО ПОДХОДА МИНУС - Если тест упадет на первом объекте, ТО МЫ НЕ УЗНАЕМ ЧТО НАПРИМЕР ОШИБКА БЫЛА ДАЛЬШЕ ПОКА НЕ ПОЙДЕМ ДЕБАЖИТЬ
+    for index, detail in enumerate(expected.details):
+        assert_validation_error(actual.details[index], detail)
+
+
+
+
+def assert_internal_error_response(actual: InternalErrorResponseSchema, expected: InternalErrorResponseSchema):
+    assert_equal(actual, expected, "details")
+
+

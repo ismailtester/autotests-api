@@ -25,3 +25,8 @@ class CreateFileRequestSchema(BaseModel):
     directory: str = Field(default="tests")
     upload_file: str
 
+class GetFileResponseSchema(BaseModel):
+    """
+    Описание структуры ответа на получение информации о созданном файле
+    """
+    file: FileSchema
