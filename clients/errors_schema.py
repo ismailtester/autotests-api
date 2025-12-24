@@ -28,7 +28,7 @@ class ValidationErrorResponseSchema(BaseModel):
 
 class InternalErrorResponseSchema(BaseModel):
     """
-
+    Модель для описания внутренней ошибки.
     """
     model_config = ConfigDict(populate_by_name=True)
     details: str = Field(alias="detail")
