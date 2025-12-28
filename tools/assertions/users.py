@@ -41,3 +41,4 @@ def assert_get_user_response(get_user_response: GetUserResponseSchema, create_us
     assert_user(get_user_response.user, create_user_response.user)
 
 
+

@@ -11,6 +11,10 @@ class CourseFixture(BaseModel):
     request: CreateCourseRequestSchema
     response: CreateCourseResponseSchema
 
+    @property
+    def course_id(self) -> str:
+        return self.response.course.id
+
 @pytest.fixture
 def courses_client(function_user: UserFixture) -> CoursesClient:
     return get_courses_client(function_user.authentication_user)
@@ -21,6 +25,11 @@ def function_course(
         function_user: UserFixture,
         function_file: FileFixture
 ) -> CourseFixture:
-    request = CreateCourseRequestSchema()
+    request = CreateCourseRequestSchema(
+        preview_file_id=function_file.response.file.id,
+        created_by_user_id=function_user.response.user.id
+    )
     response = courses_client.create_course(request)
     return CourseFixture(request=request, response=response)
+
+
