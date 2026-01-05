@@ -1,3 +1,4 @@
+import allure
 from httpx import Response
 from clients.api_client import APIClient
 from clients.private_http_builder import AuthenticationUserSchema, get_private_http_client
@@ -12,7 +13,7 @@ class ExercisesClient(APIClient):
     Клиент для работы с методами упражнений
     """
 
-
+    @allure.step("Get exercises")
     def get_exercises_api(self, query: GetExercisesQuerySchema) -> Response:
         """
         Метод получения списка упражнений определенного курса.
@@ -22,6 +23,7 @@ class ExercisesClient(APIClient):
         """
         return self.get("/api/v1/exercises", params=query.model_dump(by_alias=True))
 
+    @allure.step("Get exercise by id {exercise_id}")
     def get_exercise_api(self, exercise_id: str) -> Response:
         """
         Метод получения определенного упражнения по exercise_id.
@@ -31,6 +33,7 @@ class ExercisesClient(APIClient):
         """
         return self.get(f"/api/v1/exercises/{exercise_id}")
 
+    @allure.step("Create exercise")
     def create_exercise_api(self, request: CreateExercisesRequestSchema) -> Response:
         """
         Метод выполняет POST-запрос к эндпоинту /api/v1/exercises для создания нового упражнения.
@@ -40,6 +43,7 @@ class ExercisesClient(APIClient):
         """
         return self.post("/api/v1/exercises", json=request.model_dump(by_alias=True))
 
+    @allure.step("Update exercise by id {exercise_id}")
     def update_exercise_api(self, exercise_id: str, request: UpdateExercisesRequestSchema) -> Response:
         """
         Метод выполняет PATCH-запрос к эндпоинту /api/v1/exercises/{exercise_id} для обновления информации об упражнении.
@@ -50,6 +54,7 @@ class ExercisesClient(APIClient):
         """
         return self.patch(f"/api/v1/exercises/{exercise_id}", json=request.model_dump(by_alias=True))
 
+    @allure.step("Delete exercise by id {exercise_id}")
     def delete_exercise_api(self, exercise_id: str) -> Response:
         """
         Метод выполняет DELETE-запрос к эндпоинту /api/v1/exercises/{exercise_id} для удаления упражнения.
@@ -76,4 +81,9 @@ class ExercisesClient(APIClient):
         return UpdateExerciseResponseSchema.model_validate_json(response.text)
 
 def get_exercises_client(user: AuthenticationUserSchema) -> ExercisesClient:
+    """
+    Функция создаёт экземпляр ExerciseClient с уже настроенным HTTP-клиентом.
+
+    :return: Готовый к использованию ExerciseClient.
+    """
     return ExercisesClient(client=get_private_http_client(user))

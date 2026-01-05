@@ -3,7 +3,7 @@ from httpx import Response
 from clients.api_client import APIClient
 from clients.public_http_builder import get_public_http_client
 from clients.users.users_schema import CreateUserRequestSchema, CreateUserResponseSchema
-
+import allure
 
 
 class PublicUsersClient(APIClient):
@@ -11,6 +11,7 @@ class PublicUsersClient(APIClient):
     Клиент для работы с публичными запросами метода /api/v1/users
     """
 
+    @allure.step("Create user")
     def create_user_api(self, request: CreateUserRequestSchema) -> Response:
         """
         Метод выполняет POST-запрос к эндпоинту /api/v1/users для создания нового пользователя.

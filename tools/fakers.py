@@ -107,7 +107,7 @@ class Fake:
 
 
 
-fake = Fake(faker=Faker("ru_RU"))
+fake = Fake(faker=Faker())
 
 
 
