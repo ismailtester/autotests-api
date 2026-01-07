@@ -24,7 +24,7 @@ files_client = get_files_client(authentication_user)
 
 
 create_file_request = CreateFileRequestSchema(
-    upload_file="./testdata/files/image.png"
+    upload_file=
 )
 create_file_response = files_client.create_file(create_file_request)
 print(f"\nCreated file data:\n {create_file_response}")
