@@ -1,5 +1,7 @@
 from httpx import Client
 from pydantic import BaseModel, ConfigDict
+from config import settings
+
 from clients.authentication.authentication_client import get_authentification_client
 from clients.authentication.authentication_schema import LoginRequestSchema
 from cachetools import TTLCache, cached
@@ -32,8 +34,9 @@ def get_private_http_client(user: AuthenticationUserSchema) -> Client:
     login_response = authentication_client.login(login_request)
 
     return Client(
-        timeout=100,
-        base_url="http://localhost:8000",
+        timeout=settings.http_client.timeout,
+        base_url=settings.http_client.client_url,
         headers={"Authorization": f"Bearer {login_response.token.access_token}"},
         event_hooks={"request": [curl_event_hook]}
     )
+
