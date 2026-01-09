@@ -5,6 +5,9 @@ from clients.courses.courses_schema import UpdateCourseResponseSchema, UpdateCou
 from tools.assertions.base import assert_equal, assert_length
 from tools.assertions.files import assert_file
 from tools.assertions.users import assert_user
+from tools.logger import get_logger
+
+logger = get_logger("COURSES_ASSERTIONS")
 
 @allure.step("Check update course response")
 def assert_update_course_response(request: UpdateCourseRequestSchema, response: UpdateCourseResponseSchema):
@@ -15,6 +18,7 @@ def assert_update_course_response(request: UpdateCourseRequestSchema, response: 
     :param response: Ответ API с обновленными данными курса.
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check update course response")
     assert_equal(request.title, response.course.title, name="title")
     assert_equal(request.max_score, response.course.max_score, name="max_score")
     assert_equal(request.min_score, response.course.min_score, name="min_score")
@@ -31,6 +35,8 @@ def assert_course(actual: CourseSchema, expected: CourseSchema):
     :param expected: Ожидаемые данные курса.
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check course")
+
     assert_equal(actual.id, expected.id, name="id")
     assert_equal(actual.title, expected.title, name="title")
     assert_equal(actual.max_score, expected.max_score, name="max_score")
@@ -51,6 +57,8 @@ def assert_get_courses_response(get_course_response: GetCoursesResponseSchema, c
     :param create_course_responses: Список API ответов при создании курсов.
     :raises AssertionError: Если данные курсов не совпадают.
     """
+    logger.info("Check get courses response")
+
 
     assert_length(get_course_response.courses, create_course_responses, name="courses")
 
@@ -65,6 +73,8 @@ def assert_create_course_response(response: CreateCourseResponseSchema, request:
     :param request: запрос на создание курса
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check create course response")
+
     assert_equal(response.course.title,request.title, name="title")
     assert_equal(response.course.max_score, request.max_score, name="max_score")
     assert_equal(response.course.min_score, request.min_score, name="min_score")

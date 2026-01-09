@@ -1,10 +1,10 @@
-
-
 import allure
-from httpx import Request
+from httpx import Request, Response
 
 from tools.http.curl import make_curl_from_request
+from tools.logger import get_logger
 
+logger = get_logger("HTTP_LOGGER") #Инициализируем логгер тут, потому что принято, что бы было видно как константу и его не дублировали
 
 def curl_event_hook(request: Request):
     """
@@ -17,3 +17,10 @@ def curl_event_hook(request: Request):
 
     # Прикрепляем сгенерированную cURL команду к отчету Allure
     allure.attach(curl_command, "cURL command", allure.attachment_type.TEXT)
+
+def log_request_event_hook(request: Request):
+    logger.info(f"Make {request.method} request to {request.url}")
+
+
+def log_response_event_hook(response: Response):
+    logger.info(f"Got response {response.status_code} {response.reason_phrase} from {response.url}")
