@@ -12,4 +12,6 @@ pytest_plugins = [
     "fixtures.courses",
     "fixtures.files",
     "fixtures.exercises",
+
+    "fixtures.allure"
 ]

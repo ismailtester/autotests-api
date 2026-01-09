@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import BaseModel, HttpUrl, FilePath
+from pydantic import BaseModel, HttpUrl, FilePath, DirectoryPath
+from typing import Self
 
 
 #Вложенные модели настроек наследуются от BaseModel а не BaseSettings
@@ -24,7 +25,20 @@ class Settings(BaseSettings):
     )
     test_data: TestDataConfig
     http_client: HTTPClientConfig
+    allure_results_dir: DirectoryPath  # Добавили новое поле
 
+    # Добавили метод initialize
+    @classmethod
+    def initialize(cls) -> Self:  # Возвращает экземпляр класса Settings
+        allure_results_dir = DirectoryPath("./allure-results")  # Создаем объект пути к папке
+        allure_results_dir.mkdir(exist_ok=True)  # Создаем папку allure-results, если она не существует
+
+        # Передаем allure_results_dir в инициализацию настроек
+        return Settings(allure_results_dir=allure_results_dir)
+
+
+# Теперь вызываем метод initialize
+settings = Settings.initialize()
 
 """
 HTTP_CLIENT.URL = "URL"
@@ -34,5 +48,3 @@ HTTP_CLIENT.TIMEOUT = 100
 url: HTTP_CLIENT.URL
 timeout: HTTP_CLIENT.TIMEOUT
 """
-
-settings = Settings()
