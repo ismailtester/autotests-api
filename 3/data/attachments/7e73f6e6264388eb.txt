@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjAxOjAxLjM2OTE0OCIsInVzZXJfaWQiOiJiY2E4NThjMC0zMWRlLTQ3ZTQtOTA5Zi0yMzEyMzgzMjg5NDYifQ.Wjn4sXP93I8lGvzc7MoYYW3ThWGJwbXnJTInD0gPK58' \
+  -H 'content-length: 385' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Oil might garden majority yes clearly action partner.","maxScore":54,"minScore":9,"description":"Activity southern all along past kitchen story. Language theory prove however religious decision letter thank. Interesting south although.","estimatedTime":"3 weeks","previewFileId":"17522f0c-51ba-4667-a577-e898470d47a6","createdByUserId":"7c617023-51ea-411f-99a7-13ddb653438d"}'

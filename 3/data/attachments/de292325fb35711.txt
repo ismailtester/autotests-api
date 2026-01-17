@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjAxOjAyLjI2MjE5MSIsInVzZXJfaWQiOiJiNjZlYjFjZS0wMzBlLTQzN2YtOTcwYy1mZDA3NDNhODMxNjEifQ.czq4PxlbOZXfvbdSBEDDEJ7PGrf9d3yiA-DL1GkBTgk' \
+  -H 'content-length: 360' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Check hear better nearly attack past car.","maxScore":78,"minScore":3,"description":"Option perform whole half citizen. Finish form free south manage fight.\nInclude which just answer fish mind. By store later.","estimatedTime":"2 weeks","previewFileId":"581aa4fe-a424-4d15-8f50-f2a1f531944b","createdByUserId":"9f4b66d3-9d05-4c12-a3e2-bc901cba8cf6"}'

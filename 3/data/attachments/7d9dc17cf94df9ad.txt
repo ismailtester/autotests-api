@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjAxOjAwLjE2Mzg2MSIsInVzZXJfaWQiOiI3NTgwOTRiYi1hYTMwLTQ0MTYtODg5NC02NjI1ZDJmZTRiMWEifQ.rT8RoZtOWW4vZQU_ufRBujOayiJoMP7Ibf3ABeZVL7o' \
+  -H 'content-length: 403' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Really well court approach home risk reality.","maxScore":79,"minScore":19,"description":"First sit while. Somebody another reason artist hope.\nThrough she describe great child establish practice. Sound lot another. Along positive open agent term tend.","estimatedTime":"7 weeks","previewFileId":"6961cd19-34d8-4b35-bb02-fac911a8d2a5","createdByUserId":"e58594dd-5fa5-48b1-bfed-7dd9da95d422"}'

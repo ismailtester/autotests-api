@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjAwOjU3LjU3MTc2MiIsInVzZXJfaWQiOiI1NzA3YmZmOC1iMDFkLTRlMDItYmY4MS0wMWIzODE0NTIxYjkifQ.weA2pvTNfyr2GhpBfZwpDtZVmPZZA1yL0SELTP5k3nc' \
+  -H 'content-length: 400' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Middle thank social describe ok kind.","maxScore":83,"minScore":17,"description":"Place gas sell party bring town. Thought hear ground report arm that simply.\nVote color drop civil along that behind plan. Threat past staff provide financial morning.","estimatedTime":"6 weeks","previewFileId":"7f67f448-4287-4786-9795-7598217c0b58","createdByUserId":"5716c980-7b15-434f-9c79-faf495043353"}'

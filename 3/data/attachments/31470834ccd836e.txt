@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjAwOjU5Ljg5MTA0MiIsInVzZXJfaWQiOiI4NWQzNzcyNC03ZTA2LTQ1MzctOGY3OS1lNGYwNjY3YTI5ZmQifQ.N3hC6lZChbJsdJs3flztw1v0sYlTzz3OfNQyJPl1MzU' \
+  -H 'content-length: 353' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Current know break hospital blood personal fly skin.","maxScore":55,"minScore":1,"description":"Difference as stand military want. Deal fire than every.\nTop ability these wind card. Real fill reason Mr.","estimatedTime":"9 weeks","previewFileId":"fc70d546-35a3-4273-9490-f53eb9406dca","createdByUserId":"45467a05-99f0-430d-8d13-70fc187d901a"}'
