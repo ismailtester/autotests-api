@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjMzOjM0LjAzNDg4MiIsInVzZXJfaWQiOiIyNmNhZmMwMS1iODk2LTRjOWYtYjQxOS02ZDAyODIyZDBlM2UifQ.ZwjYeASwmIYsOZkj4lCxgeJL1_zZeFCuLsGeZKtvRCE' \
+  -H 'content-length: 322' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Water business sure.","maxScore":50,"minScore":6,"description":"Their pretty three sister standard hundred memory. Few lose community hope deep.\nAffect who lose condition.","estimatedTime":"6 weeks","previewFileId":"5e992597-93ba-4d0b-a47f-6f01b1e1115d","createdByUserId":"6df86c24-9b05-43a4-9aec-a12c0b9e0293"}'

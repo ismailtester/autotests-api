@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjMzOjMyLjg0MzUyMCIsInVzZXJfaWQiOiI1NjcxMDU0ZS0wNGM0LTRkYjQtODE4MC1lYmE4ZjhlYTNlZDkifQ.zlSQVPgHt3RXrd185IHcOVATwusJOnrWRfg76NwM6Ks' \
+  -H 'content-length: 360' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Ground alone should fear.","maxScore":70,"minScore":16,"description":"Similar similar gun clear society. Part family next opportunity vote.\nStep morning since quite. Shake there life decide heavy consumer ask.","estimatedTime":"9 weeks","previewFileId":"fb8429e9-066c-4f92-87ab-daf6b785e190","createdByUserId":"ccd674d0-2762-4bdb-9144-046f6906278b"}'

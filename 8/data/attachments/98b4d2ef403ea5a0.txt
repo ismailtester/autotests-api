@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjMzOjMwLjI3MjQ4NSIsInVzZXJfaWQiOiI1OGQ1NzgwMS1lYjk0LTQwMTItOTUwOC0yYmQ1OWE4ZDc1ZTQifQ.bnHlXXR8TUcAPWqgGDZthVpfn2PWtSUT04rCoIi6J1Q' \
+  -H 'content-length: 389' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Room voice yet its bag.","maxScore":70,"minScore":25,"description":"Everything box goal he tonight candidate company. Shake order bank seek recognize major example.\nNumber bring example indeed at north. Town morning maybe force five upon.","estimatedTime":"1 weeks","previewFileId":"1c812032-b6ef-4b4b-aae9-7bd7cfc01fe4","createdByUserId":"1d7787a1-1065-49fb-a001-6cd11e8b015a"}'

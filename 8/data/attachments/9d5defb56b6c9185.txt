@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjMzOjMzLjc2MzQ0OSIsInVzZXJfaWQiOiIxYjBhMDQyYi1lMmU0LTQ2MzgtYWNhOC0xY2YyOWQ0NjZmNjMifQ.MSd2INqUg1ArPB8dMibPmmswpC9chhgTD8JYgRBPeUg' \
+  -H 'content-length: 393' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Instead term standard old effort allow our water.","maxScore":97,"minScore":25,"description":"Office outside decision adult. Star open apply however.\nAgain risk natural. Side now memory ground box nor spend. Federal something consider school.","estimatedTime":"5 weeks","previewFileId":"25d4872a-0859-4fa8-b652-0eca99cce9d8","createdByUserId":"44343805-996f-4a34-bbb2-debaf5475101"}'

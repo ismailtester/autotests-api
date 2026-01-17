@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjMzOjMxLjY3NzQwMyIsInVzZXJfaWQiOiI4NmY3MDVlNi0yYjhkLTQwYjMtOGZjYi0zNDIxM2UwMTcxZDEifQ.Qz0sbCEHVIE1kLAeabsK4FLk2cdDhKEP7Itga97O6ok' \
+  -H 'content-length: 431' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Manager foreign image determine result.","maxScore":62,"minScore":21,"description":"Research however large. Of wonder beyond white whole drug probably simple.\nTeacher wide process middle nor market. Score sound never bag rich rock skill save. Law as party up local method federal.","estimatedTime":"6 weeks","previewFileId":"80b90371-ad10-4a6c-a388-22a3d2c54442","createdByUserId":"a871dcc6-ead7-4ee2-8c93-a038b2dbbcb3"}'

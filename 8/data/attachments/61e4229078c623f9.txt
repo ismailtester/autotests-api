@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjMzOjMxLjQwMzYyMSIsInVzZXJfaWQiOiI1Mjc3ZjljNy03NDc0LTQ5MWEtYmFiYS0yMTA3OTU2YTc3MzIifQ.fOZzA2GFt2AE_SmbJdzfi0WLwaBgnUCWLjUOApFbLMQ' \
+  -H 'content-length: 422' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Son room reason writer as store stay.","maxScore":84,"minScore":14,"description":"Speech throughout term collection experience quality. Account people point guy positive near subject. Green training party.\nSkill offer approach. Itself reality above article open approach.","estimatedTime":"9 weeks","previewFileId":"cea52a37-923c-4a25-bf62-0499b8db4b86","createdByUserId":"5277f9c7-7474-491a-baba-2107956a7732"}'

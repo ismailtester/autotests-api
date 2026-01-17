@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjMzOjMyLjU3MTAyNSIsInVzZXJfaWQiOiI3YWU1YWY2OS1kNDIwLTQ0MDQtYTVmMS1hYTM1Y2VlZWRlY2IifQ.9m02cF-8bsBdbGthUNzGPwr2rbpdaQ4I0odU5YYKIts' \
+  -H 'content-length: 352' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Various sell think measure box under wish they.","maxScore":69,"minScore":22,"description":"Price party country summer experience protect.\nRock standard entire she plant. None somebody line everything.","estimatedTime":"4 weeks","previewFileId":"b11725c9-42b6-477c-81ba-c1980d0e9879","createdByUserId":"767973b5-6848-49bb-99b8-800da3b9ae4d"}'
