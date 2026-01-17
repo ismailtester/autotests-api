@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjE1OjA0LjM3MzQ3MiIsInVzZXJfaWQiOiJiYWFhM2Y3My1mZTVmLTRlZmEtOWQ4MC04YmQyNDVmM2I3NTMifQ.FNtw_axFFEpzYCq0WVNpeqH3GBCwRfZCdm1IE7fLak8' \
+  -H 'content-length: 331' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Respond live before glass.","maxScore":94,"minScore":28,"description":"Institution choice economic until rock game. Animal fear me goal present build. Tend choose phone room memory.","estimatedTime":"2 weeks","previewFileId":"dcd0221c-eb0e-4214-b0a3-67ae96fbebd3","createdByUserId":"baaa3f73-fe5f-4efa-9d80-8bd245f3b753"}'

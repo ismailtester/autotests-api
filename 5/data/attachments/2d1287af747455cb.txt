@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjE1OjA2LjM3ODUwNiIsInVzZXJfaWQiOiI2ZTBlYzQ1Yi1kZTNlLTRjNDktOThmNi0yYzY3MTEzYTllMmEifQ.FeRhbdpcw0JzpNQHKD6TPOuWm2KqoJ600hJKnl_40nE' \
+  -H 'content-length: 398' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Day thank as.","maxScore":77,"minScore":28,"description":"Truth parent simply among. At far information tough start quite. At fact film unit already human future thousand.\nMachine hour couple chance kind two form. Interview chance leader magazine.","estimatedTime":"5 weeks","previewFileId":"40794a60-bda8-4aea-a602-2a01a551a7f6","createdByUserId":"43ef6d1d-6932-4e44-bdea-ee5a89a46c70"}'

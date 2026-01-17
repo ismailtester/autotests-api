@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjE1OjA3LjY3OTQwOSIsInVzZXJfaWQiOiJiMDk1MzRkZS1jOTc2LTQwMzAtOTVjMi1lZGEzNzRjYzc2OGEifQ.cdvwC5u0svofBlo17nQGaBuBr3L8SdUAQ_0dkGlrb1c' \
+  -H 'content-length: 420' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Method early cultural north thousand recently each.","maxScore":81,"minScore":20,"description":"Edge agency large surface. May indicate stage program draw. Employee have boy.\nParticularly run sort side. Able protect drive real dream onto light. President media mention.","estimatedTime":"8 weeks","previewFileId":"262f42c7-6d31-4ac3-b50d-66cdd92f0778","createdByUserId":"cd7d2c8b-693b-47a3-8763-475a4ba0c098"}'

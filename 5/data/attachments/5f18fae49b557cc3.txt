@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjE1OjA1LjcyNTQwOSIsInVzZXJfaWQiOiJkZjhkMzQ5MC1mYjUxLTRmMjMtYTg2Yy0xY2M5Yjc0MjRjMTAifQ.nu1l6rNmiybpz4qQ0awPRLfla21YlgiIHqfyxhQfhfs' \
+  -H 'content-length: 366' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Parent later song list under.","maxScore":72,"minScore":6,"description":"Behavior piece mind describe news. Trial finish information sound could forget newspaper black. Billion here suffer piece entire sign somebody.","estimatedTime":"6 weeks","previewFileId":"be8145ac-fa99-4b26-b80c-405126c76455","createdByUserId":"eafa3e15-7d7c-402f-b176-003412d4e814"}'

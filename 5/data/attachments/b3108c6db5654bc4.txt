@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjE1OjA4LjMzMTkxMCIsInVzZXJfaWQiOiJmYjQzZDlhZS1iY2Y3LTRhOWQtYWI4My01YjQxYzA4NDBmZGEifQ.SQWWXWir151cOSMnsUy7M91H3oMg2U43SfuiEssJs5k' \
+  -H 'content-length: 365' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Top people say level cell.","maxScore":96,"minScore":4,"description":"Old challenge maybe watch ok pay if. Its indicate different age difference from election. Meet professional threat what there its sometimes news.","estimatedTime":"3 weeks","previewFileId":"90681f48-f01c-4215-b0f4-9c4f26a8b668","createdByUserId":"9cd6e6b5-94ee-4077-b1e9-0bdc920fcbfa"}'

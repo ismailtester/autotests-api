@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjE1OjA4Ljk5NDgyNSIsInVzZXJfaWQiOiI4NmRmNDExMS1hYzUxLTQxY2UtYTFiZC02YjMzOTAxYzc0MWMifQ.rRIWhXnkceYmp4M1UTgU6q72yEPUtVuMcR4sB9kTYa0' \
+  -H 'content-length: 395' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Kind respond consumer.","maxScore":63,"minScore":7,"description":"These modern subject total subject actually. Laugh end rule foot development home clearly hospital. Box western simple allow.\nModern cost myself use month. Story drive news plan.","estimatedTime":"5 weeks","previewFileId":"753b1763-3f13-48d5-9d9f-2ef086c2cc6b","createdByUserId":"76e3de95-bfb5-4436-b588-2dd0ffb3edc2"}'

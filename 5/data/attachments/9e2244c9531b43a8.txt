@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjE1OjA3LjAyNjMzNCIsInVzZXJfaWQiOiJjNzdiNDdlYi0zN2Q4LTQyYjEtOTU1Mi1iNWMzM2FiN2QxZDQifQ.1CNYO775P33Mt-_TPu0uoJ55bVGdP3yvVlt9RRZ5rog' \
+  -H 'content-length: 328' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Direction reduce travel avoid school attorney good more.","maxScore":99,"minScore":5,"description":"Away whole him town. Head hope tend time. Seem picture food recent discussion.","estimatedTime":"7 weeks","previewFileId":"4b0d314b-c900-4670-970a-9ac83185e1e3","createdByUserId":"6cb0dbba-f4ba-430c-93f0-0a9b44f42f19"}'
