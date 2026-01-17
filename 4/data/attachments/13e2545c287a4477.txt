@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjA3OjUwLjkxMzk2MiIsInVzZXJfaWQiOiI5ZWFhYThiZC1mZjZhLTRmYzItYWFmYy1jYjcxMTE3ZjcxYWYifQ.jJMF74Nuu8dbYbAV8lj8oRlIZDa3gZmCK_5yHeHadHY' \
+  -H 'content-length: 348' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Mention sister cost matter war.","maxScore":52,"minScore":29,"description":"Official they piece him thus explain. Keep language region serious central design sometimes. Reason night someone surface.","estimatedTime":"7 weeks","previewFileId":"95ed454e-375f-4016-8511-f5eb6e84d5de","createdByUserId":"50549951-2323-4197-a364-ed90363d79de"}'

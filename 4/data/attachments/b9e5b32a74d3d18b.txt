@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjA3OjUwLjMzMjI1OCIsInVzZXJfaWQiOiJhYmU3NmRhOC05NjBhLTRkODItOTY5Mi00ZTczODhlZTJiZDAifQ.kSLiARlK59hBIm1SnXkUxwMirydtagl7xdviY6bru1k' \
+  -H 'content-length: 333' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Mrs rock protect.","maxScore":71,"minScore":25,"description":"Seem similar staff situation particularly get. Size south what grow fill realize speak. Organization street yourself two.","estimatedTime":"2 weeks","previewFileId":"a44ec4f6-b955-4fcb-9ba2-1cc666494da4","createdByUserId":"88e54981-de88-4852-8c43-1d6aa8841ec3"}'

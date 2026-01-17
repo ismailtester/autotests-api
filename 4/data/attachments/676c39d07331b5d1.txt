@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjA3OjUxLjQ5MTU3MiIsInVzZXJfaWQiOiI2MWE5Nzk3My0yMDUzLTRhNjctOTFmMi0zZjhhZWJhNTNkZDYifQ.Qpc6BnsjmYcTxUuUxKdjwak5sDCTiQJb2xu8dRExpkY' \
+  -H 'content-length: 344' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Keep agency health will instead husband.","maxScore":66,"minScore":3,"description":"Way opportunity law director test authority general. Field medical always allow herself however full research.","estimatedTime":"9 weeks","previewFileId":"4f951f20-daf8-4026-a0f7-2031d3361b90","createdByUserId":"4a78adc7-5cb7-4242-9bc1-7a96791d514c"}'

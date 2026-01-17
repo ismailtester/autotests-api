@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjA3OjQ4LjU4MjQ0MiIsInVzZXJfaWQiOiIxZWIxZTY5YS1lOTM3LTQ4YzUtYmMwOS0wODliZjM1NmRmNzMifQ.VPNkMxHIUKN0oRO5nTBDKx2ZoZZvymN6iMtJ7zYzCoM' \
+  -H 'content-length: 371' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Sea sometimes stand cost sometimes.","maxScore":73,"minScore":30,"description":"Example what single learn all. Detail leave significant officer end.\nGas enough peace way edge color. Before century rich million exist kid.","estimatedTime":"1 weeks","previewFileId":"4c00b9e1-78ed-4667-8e9a-0599fbd04d60","createdByUserId":"d3c88dcd-97be-4548-990e-e47e3f8095bc"}'

@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjA3OjQ5LjE3MTMzNSIsInVzZXJfaWQiOiJjMWRmZGJjNy0wMmZjLTQ3NjMtYWY1MC1mZDc4MzJhYjQ3NGUifQ.4dnmcxbqgYiJUx-W9rS7vP2uAq6DiiKp229wW12xNYc' \
+  -H 'content-length: 376' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Year miss why high budget scene.","maxScore":73,"minScore":20,"description":"Itself political interest bring each example. Protect attention carry seem every maintain. Project politics morning campaign base parent few outside.","estimatedTime":"3 weeks","previewFileId":"840eb6a2-94ff-47cb-b618-9a6c067420ea","createdByUserId":"c1dfdbc7-02fc-4763-af50-fd7832ab474e"}'

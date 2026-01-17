@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjA3OjUyLjA3MTA1NiIsInVzZXJfaWQiOiI0NWFmZmJkYi0xMWU4LTQ5YzAtOTg4MS03ZDIzODE0NTc4MTYifQ.du6GuUbeHwjfCNCZm7fy6yiF5bieYPpscYvjT10DpDg' \
+  -H 'content-length: 412' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Agreement reason interesting part nearly bag age.","maxScore":57,"minScore":8,"description":"Floor point level. Base age glass. Tv reason lay small.\nSomeone easy part into. Marriage eat lead husband college effort drive.\nSite small beyond spend series and bag.","estimatedTime":"2 weeks","previewFileId":"fc85cff6-bb16-4e02-9ddc-2df2cd95e0b3","createdByUserId":"a7f5f7ae-7dcb-4b91-aaee-b862113d5072"}'
