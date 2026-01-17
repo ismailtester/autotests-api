@@ -19,6 +19,7 @@ class TestDataConfig(BaseModel):
 #Модель настроек наследуется от BaseSettings
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
+        extra="allow", #Настройка нужна для CI - так как будет дополнительный файл .env самого сервера в папке с проектом
         env_file=".env", #Название файла откуда берем переменные окружения
         env_file_encoding="utf-8", #Кодировку файла с переменными окружения
         env_nested_delimiter="." #Данный разделитель нужен для правильного создания модели с вложенными моделями пример ниже
