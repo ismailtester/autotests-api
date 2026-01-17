@@ -1,193 +1,84 @@
+
+# Имя вашего workflow, которое будет отображаться в интерфейсе GitHub Actions
 name: API tests
 
+# Указываем, когда будет запускаться данный workflow
 on:
   push:
-    branches: [main]
+    branches:
+      - main  # Запускать workflow, когда будет сделан коммит в ветку main
   pull_request:
-    branches: [main]
+    branches:
+      - main  # Запускать workflow, когда будет сделан pull request в ветку main
 
+# Определяем все шаги, которые должны быть выполнены в рамках работы с тестами
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Указываем, что тесты будут запускаться на последней версии Ubuntu
 
     steps:
+      # 1. Шаг, который будет клонировать ваш репозиторий на машину GitHub Actions
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6  # Используем GitHub Action для клонирования репозитория
 
+      # 2. Шаг для установки Python на виртуальной машине
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v6  # Используем GitHub Action для установки Python
         with:
-          python-version: "3.13"
+          python-version: '3.13'  # Устанавливаем версию Python 3.11 (можно заменить на другую версию)
 
-      - name: Upgrade pip
-        run: python -m pip install --upgrade pip
-
+      # 3. Шаг для клонирования репозитория с тестовым сервером в рабочую среду
       - name: Clone test server repository
         run: git clone https://github.com/Nikita-Filonov/qa-automation-engineer-api-course.git
 
+      # 4. Шаг для установки зависимостей для тестового сервера
       - name: Install test server dependencies
         run: pip install -r qa-automation-engineer-api-course/requirements.txt
 
-      - name: Start a test server (debug + logs)
+      # 5. Шаг для запуска тестового сервера с необходимыми переменными окруженияd
+      - name: Start a test server
         env:
-          APP_HOST: "http://localhost:8000"
-          DATABASE_URL: "sqlite+aiosqlite:///${{ runner.temp }}/local_${{ github.run_id }}_${{ github.run_attempt }}.db"
-          JWT_ALGORITHM: "HS256"
-          JWT_SECRET_KEY: "qa-automation-engineer-api-course-secret-key"
-          JWT_ACCESS_TOKEN_EXPIRE: 1800
-          JWT_REFRESH_TOKEN_EXPIRE: 5184000
+          APP_HOST: "http://localhost:8000"  # Устанавливаем адрес хоста сервера
+          DATABASE_URL: "sqlite+aiosqlite:///./local.db" # Устанавливаем URL локальной базы данных
+          JWT_ALGORITHM: "HS256" # Алгоритм для JWT токенов
+          JWT_SECRET_KEY: "qa-automation-engineer-api-course-secret-key" # Секретный ключ для JWT
+          JWT_ACCESS_TOKEN_EXPIRE: 1800 # Время жизни access token (в секундах)
+          JWT_REFRESH_TOKEN_EXPIRE: 5184000 # Время жизни refresh token (в секундах)
+        run: uvicorn main:app --host 0.0.0.0 --port 8000 --app-dir ./qa-automation-engineer-api-course & # Запускаем сервер с указанными переменными окружения
+
+      # 6. Шаг для установки всех зависимостей проекта
+      - name: Install dependencies
         run: |
-          echo "DATABASE_URL=$DATABASE_URL"
-          uvicorn main:app \
-            --host 0.0.0.0 --port 8000 \
-            --app-dir ./qa-automation-engineer-api-course \
-            --log-level debug \
-            --access-log \
-            > server.log 2>&1 &
-          echo $! > server.pid
-          sleep 1
-          echo "Server PID: $(cat server.pid)"
+          python -m pip install --upgrade pip  # Обновляем pip до последней версии
+          pip install -r requirements.txt  # Устанавливаем зависимости, указанные в requirements.txt
 
-      - name: Wait for API to be ready
+      # 7. Шаг для запуска тестов с использованием pytest и генерации отчётов Allure
+      - name: Run API tests with pytest and generate Allure results
         run: |
-          for i in {1..40}; do
-            curl -sf http://localhost:8000/docs >/dev/null && echo "API is up" && exit 0
-            sleep 1
-          done
-          echo "API did not start in time"
-          echo "===== server.log (last 300 lines) ====="
-          tail -n 300 server.log || true
-          exit 1
+          pytest -m regression --alluredir=allure-results --numprocesses 2  # Запускаем тесты, отмеченные как "regression", генерируем результаты для Allure
 
-      # Smoke: повторяем минимальный happy-path: users -> login -> files -> courses
-      # ВАЖНО: camelCase поля как ожидает сервер
-      - name: create user + login + file + course (print responses)
-        run: |
-          set -euo pipefail
-
-          echo "== Create user =="
-          USER_EMAIL="ci_user_${{ github.run_id }}_${{ github.run_attempt }}@example.com"
-          USER_PASS="Passw0rd!"
-          USER_JSON=$(jq -nc \
-            --arg email "$USER_EMAIL" \
-            --arg password "$USER_PASS" \
-            --arg lastName "CI" \
-            --arg firstName "User" \
-            --arg middleName "Run" \
-            '{email:$email,password:$password,lastName:$lastName,firstName:$firstName,middleName:$middleName}')
-
-          curl -sS -D /tmp/u.h -o /tmp/u.json -X POST http://localhost:8000/api/v1/users \
-            -H "Content-Type: application/json" \
-            -d "$USER_JSON" || true
-          echo "--- headers ---"; cat /tmp/u.h || true
-          echo "--- body ---"; cat /tmp/u.json || true
-
-          USER_ID=$(cat /tmp/u.json | jq -r '.user.id // empty')
-          if [ -z "$USER_ID" ]; then
-            echo "User id is empty -> failing."
-            tail -n 300 server.log || true
-            exit 1
-          fi
-
-          echo "== Login =="
-          LOGIN_JSON=$(jq -nc --arg email "$USER_EMAIL" --arg password "$USER_PASS" '{email:$email,password:$password}')
-          curl -sS -D /tmp/l.h -o /tmp/l.json -X POST http://localhost:8000/api/v1/authentication/login \
-            -H "Content-Type: application/json" \
-            -d "$LOGIN_JSON" || true
-          echo "--- headers ---"; cat /tmp/l.h || true
-          echo "--- body ---"; cat /tmp/l.json || true
-
-          TOKEN=$(cat /tmp/l.json | jq -r '.token.accessToken // empty')
-          if [ -z "$TOKEN" ]; then
-            echo "Token is empty -> failing."
-            tail -n 300 server.log || true
-            exit 1
-          fi
-
-          echo "== Create file =="
-          FILE_JSON=$(jq -nc \
-            --arg filename "ci.png" \
-            --arg directory "tests" \
-            --arg uploadedByUserId "$USER_ID" \
-            '{filename:$filename,directory:$directory,uploadedByUserId:$uploadedByUserId}')
-
-          curl -sS -D /tmp/f.h -o /tmp/f.json -X POST http://localhost:8000/api/v1/files \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer '"$TOKEN"'" \
-            -d "$FILE_JSON" || true
-          echo "--- headers ---"; cat /tmp/f.h || true
-          echo "--- body ---"; cat /tmp/f.json || true
-
-          FILE_ID=$(cat /tmp/f.json | jq -r '.file.id // empty')
-          if [ -z "$FILE_ID" ]; then
-            echo "File id is empty -> failing."
-            tail -n 300 server.log || true
-            exit 1
-          fi
-
-          echo "== Create course =="
-          COURSE_JSON=$(jq -nc \
-            --arg title "CI Course" \
-            --arg description "CI course description" \
-            --arg estimatedTime "2 weeks" \
-            --arg previewFileId "$FILE_ID" \
-            --arg createdByUserId "$USER_ID" \
-            --argjson maxScore 100 \
-            --argjson minScore 10 \
-            '{title:$title,maxScore:$maxScore,minScore:$minScore,description:$description,estimatedTime:$estimatedTime,previewFileId:$previewFileId,createdByUserId:$createdByUserId}')
-
-          curl -sS -D /tmp/c.h -o /tmp/c.json -X POST http://localhost:8000/api/v1/courses \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer '"$TOKEN"'" \
-            -d "$COURSE_JSON" || true
-          echo "--- headers ---"; cat /tmp/c.h || true
-          echo "--- body ---"; cat /tmp/c.json || true
-
-          echo "== Done smoke =="
-
-      - name: Install test dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run tests
-        run: pytest -m regression --alluredir=allure-results -vv
-
-      - name: Print server log (last 400 lines)
-        if: always()
-        run: |
-          echo "===== server.log (last 400 lines) ====="
-          tail -n 400 server.log || true
-
-      - name: Upload server log artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: server-log
-          path: server.log
-
-      - name: Stop server
-        if: always()
-        run: |
-          kill $(cat server.pid) || true
-
+      # 8. Шаг для получения истории отчётов Allure, если она существует
       - name: Get Allure history
-        uses: actions/checkout@v6
-        if: always()
-        continue-on-error: true
+        uses: actions/checkout@v6  # Опять клонируем репозиторий, чтобы получить историю отчётов
+        if: always()  # Всегда выполняем, независимо от успеха или неудачи предыдущих шагов
+        continue-on-error: true  # Если здесь возникнет ошибка, workflow всё равно продолжит выполнение
         with:
-          ref: gh-pages
-          path: gh-pages
+          ref: gh-pages  # Указываем ветку gh-pages для получения отчётов
+          path: gh-pages  # Указываем путь для сохранения отчётов
 
+      # 9. Шаг для генерации и отображения отчёта Allure
       - name: Generates Allure Report with history
-        uses: simple-elf/allure-report-action@v1.13
-        if: always()
+        uses: simple-elf/allure-report-action@v1.13  # Используем готовое решение из GitHub Marketplace для генерации Allure отчёта
+        if: always()  # Этот шаг тоже всегда выполняется
         with:
-          allure_results: allure-results
-          allure_history: allure-history
+          allure_results: allure-results  # Указываем каталог с результатами тестов
+          allure_history: allure-history  # Указываем каталог для истории отчётов Allure
 
+      # 10. Шаг для деплоя отчёта Allure на GitHub Pages, чтобы его можно было просматривать в браузере
       - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v4
+        if: always()  # Выполняется всегда, независимо от успеха других шагов
+        uses: peaceiris/actions-gh-pages@v4  # Используем GitHub Action для публикации отчёта на GitHub Pages
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Токен для аутентификации на GitHub
+          publish_branch: gh-pages  # Указываем, что отчёт будет опубликован в ветке gh-pages
+          publish_dir: allure-history  # Указываем папку, которая будет опубликована на GitHub Pages
