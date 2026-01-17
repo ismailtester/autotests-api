@@ -1,88 +1,164 @@
-# Имя вашего workflow, которое будет отображаться в интерфейсе GitHub Actions
 name: API tests
 
-# Указываем, когда будет запускаться данный workflow
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Клонируем ваш репозиторий (с автотестами)
       - name: Check out repository
         uses: actions/checkout@v6
 
-      # 2) Ставим Python
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
-      # 3) Клонируем репозиторий тестового сервера
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
       - name: Clone test server repository
         run: git clone https://github.com/Nikita-Filonov/qa-automation-engineer-api-course.git
 
-      # 4) Ставим зависимости тестового сервера
       - name: Install test server dependencies
         run: pip install -r qa-automation-engineer-api-course/requirements.txt
 
-      # 5) Запускаем сервер И пишем его stdout/stderr в server.log + сохраняем PID
-      - name: Start a test server (with logs)
+      # ВАЖНО: делаем БД уникальной на каждый запуск (чистая БД) и включаем debug-логи сервера
+      - name: Start a test server (debug + logs)
         env:
           APP_HOST: "http://localhost:8000"
-          DATABASE_URL: "sqlite+aiosqlite:///./local.db"
+          DATABASE_URL: "sqlite+aiosqlite:///${{ runner.temp }}/local_${{ github.run_id }}_${{ github.run_attempt }}.db"
           JWT_ALGORITHM: "HS256"
           JWT_SECRET_KEY: "qa-automation-engineer-api-course-secret-key"
           JWT_ACCESS_TOKEN_EXPIRE: 1800
           JWT_REFRESH_TOKEN_EXPIRE: 5184000
         run: |
-          uvicorn main:app --host 0.0.0.0 --port 8000 --app-dir ./qa-automation-engineer-api-course > server.log 2>&1 &
+          echo "DATABASE_URL=$DATABASE_URL"
+          uvicorn main:app \
+            --host 0.0.0.0 --port 8000 \
+            --app-dir ./qa-automation-engineer-api-course \
+            --log-level debug \
+            --access-log \
+            > server.log 2>&1 &
           echo $! > server.pid
+          sleep 1
+          echo "Server PID: $(cat server.pid)"
 
-      # 6) (рекомендовано) Ждём пока сервер реально поднимется
       - name: Wait for API to be ready
         run: |
-          for i in {1..30}; do
+          for i in {1..40}; do
             curl -sf http://localhost:8000/docs >/dev/null && echo "API is up" && exit 0
             sleep 1
           done
           echo "API did not start in time"
-          echo "===== server.log (last 200 lines) ====="
-          tail -n 200 server.log || true
+          echo "===== server.log (last 300 lines) ====="
+          tail -n 300 server.log || true
           exit 1
 
-      # 7) Ставим зависимости вашего проекта (автотестов)
-      - name: Install dependencies
+      # Быстрый smoke, чтобы сразу увидеть как сервер отвечает (и поймать traceback в server.log)
+      - name: create user + login + file + course (print responses)
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          set -e
 
-      # 8) Запускаем тесты
-      - name: Run API tests with pytest and generate Allure results
+          echo "== Create user =="
+          USER_JSON='{"email":"ci_user_'${{ github.run_id }}'@example.com","password":"Passw0rd!","last_name":"CI","first_name":"User","middle_name":"Run"}'
+          curl -sS -D /tmp/u.h -o /tmp/u.json -X POST http://localhost:8000/api/v1/users \
+            -H "Content-Type: application/json" \
+            -d "$USER_JSON" || true
+          echo "--- headers ---"; cat /tmp/u.h || true
+          echo "--- body ---"; cat /tmp/u.json || true
+
+          echo "== Login =="
+          LOGIN_JSON='{"email":"ci_user_'${{ github.run_id }}'@example.com","password":"Passw0rd!"}'
+          curl -sS -D /tmp/l.h -o /tmp/l.json -X POST http://localhost:8000/api/v1/authentication/login \
+            -H "Content-Type: application/json" \
+            -d "$LOGIN_JSON" || true
+          echo "--- headers ---"; cat /tmp/l.h || true
+          echo "--- body ---"; cat /tmp/l.json || true
+
+          # Достаём access_token (jq есть на ubuntu-latest)
+          TOKEN=$(cat /tmp/l.json | jq -r '.token.access_token // empty')
+          if [ -z "$TOKEN" ]; then
+            echo "Token is empty. Printing server log:"
+            tail -n 300 server.log || true
+            exit 1
+          fi
+
+          echo "== Create file =="
+          FILE_JSON='{"filename":"ci.png","directory":"tests","uploaded_by_user_id":"00000000-0000-0000-0000-000000000000"}'
+          # ВАЖНО: сервер обычно валидирует uploaded_by_user_id, поэтому берём реального user_id из /tmp/u.json
+          USER_ID=$(cat /tmp/u.json | jq -r '.user.id // empty')
+          if [ -z "$USER_ID" ]; then
+            echo "User id is empty. Printing server log:"
+            tail -n 300 server.log || true
+            exit 1
+          fi
+          FILE_JSON=$(jq -nc --arg filename "ci.png" --arg directory "tests" --arg uploaded_by_user_id "$USER_ID" \
+            '{filename:$filename,directory:$directory,uploaded_by_user_id:$uploaded_by_user_id}')
+          curl -sS -D /tmp/f.h -o /tmp/f.json -X POST http://localhost:8000/api/v1/files \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer '"$TOKEN"'" \
+            -d "$FILE_JSON" || true
+          echo "--- headers ---"; cat /tmp/f.h || true
+          echo "--- body ---"; cat /tmp/f.json || true
+
+          FILE_ID=$(cat /tmp/f.json | jq -r '.file.id // empty')
+          if [ -z "$FILE_ID" ]; then
+            echo "File id is empty. Printing server log:"
+            tail -n 300 server.log || true
+            exit 1
+          fi
+
+          echo "== Create course =="
+          COURSE_JSON=$(jq -nc \
+            --arg title "CI Course" \
+            --arg description "CI course description" \
+            --arg estimated_time "2 weeks" \
+            --arg preview_file_id "$FILE_ID" \
+            --arg created_by_user_id "$USER_ID" \
+            --argjson max_score 100 \
+            --argjson min_score 10 \
+            '{title:$title,max_score:$max_score,min_score:$min_score,description:$description,estimated_time:$estimated_time,preview_file_id:$preview_file_id,created_by_user_id:$created_by_user_id}')
+          curl -sS -D /tmp/c.h -o /tmp/c.json -X POST http://localhost:8000/api/v1/courses \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer '"$TOKEN"'" \
+            -d "$COURSE_JSON" || true
+          echo "--- headers ---"; cat /tmp/c.h || true
+          echo "--- body ---"; cat /tmp/c.json || true
+
+          STATUS=$(cat /tmp/c.h | head -n 1 || true)
+          echo "Course status line: $STATUS"
+
+      - name: Install test dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest -m regression --alluredir=allure-results -vv
+
+      # Всегда печатаем лог — чтобы даже при успехе видеть, что происходило
+      - name: Print server log (last 400 lines)
+        if: always()
         run: |
-          pytest -m regression --alluredir=allure-results
+          echo "===== server.log (last 400 lines) ====="
+          tail -n 400 server.log || true
 
-      # 9) Если тесты упали — показываем логи сервера (это ключевое)
-      - name: Show server log on failure
-        if: failure()
-        run: |
-          echo "===== server.log (last 200 lines) ====="
-          tail -n 200 server.log || true
+      - name: Upload server log artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-log
+          path: server.log
 
-      # 10) Всегда останавливаем сервер
       - name: Stop server
         if: always()
         run: |
           kill $(cat server.pid) || true
 
-      # 11) Забираем историю Allure (если есть)
       - name: Get Allure history
         uses: actions/checkout@v6
         if: always()
@@ -91,7 +167,6 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      # 12) Генерируем отчёт Allure
       - name: Generates Allure Report with history
         uses: simple-elf/allure-report-action@v1.13
         if: always()
@@ -99,7 +174,6 @@ jobs:
           allure_results: allure-results
           allure_history: allure-history
 
-      # 13) Деплоим отчёт на GitHub Pages
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
