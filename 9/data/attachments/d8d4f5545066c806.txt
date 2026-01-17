@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA2LjUyODI5MiIsInVzZXJfaWQiOiJhYTFiMTM3Yy03NWVkLTQzYzktOWFlMS00NDBmYWVjNWE2YjAifQ.eqPgrTkMgimeaAF5Isssv1KjSPZ5Jwp2zbYBthKAtUk' \
+  -H 'content-length: 380' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Animal number this difficult.","maxScore":52,"minScore":16,"description":"Management who system cost. Alone that either wall perform century. More none sport.\nCan half support management you. Those dinner defense health per half.","estimatedTime":"7 weeks","previewFileId":"d7c9241a-4770-4579-bc5c-326479ed6b0d","createdByUserId":"c0bcb1c2-4425-40b7-9682-f0d3389e6423"}'

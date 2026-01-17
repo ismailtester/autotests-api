@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA1LjM1MDIyMCIsInVzZXJfaWQiOiI2ZGU5ZTJjNi1kYTU5LTRlYTgtOGY3Ni0xYTBmZmZkZjBjOWEifQ.3N3shw97PEhNmd-uOwQh2sQPUwoPxKCk7eIvh1qgVt0' \
+  -H 'content-length: 402' \
+  -H 'content-type: application/json' \
+  -d '{"title":"They dark before they crime modern culture.","maxScore":98,"minScore":3,"description":"Do game Mr who cut guy part effort. Play term job.\nEverybody accept walk stage. Mouth reduce artist bit former family citizen finish. Piece discussion church data.","estimatedTime":"10 weeks","previewFileId":"66fd57a6-73ed-47c4-b9ca-023c3f0d0e83","createdByUserId":"2d366538-6616-451f-9dc4-ca386785d7f3"}'

@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA4LjI3MDIwOSIsInVzZXJfaWQiOiI0ZWY3NDBjNy0zNmJmLTRlYTItOTMzNC1hMGU5YzNhMDcyN2IifQ.9LP_odH0j9gjMomZy012rTJPcWHG17o-GV9vcX1QVj0' \
+  -H 'content-length: 372' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Dark drop short assume.","maxScore":93,"minScore":2,"description":"Upon protect sister suggest. Travel subject finish modern at national most.\nShort should across card thing control. Image someone full summer its develop.","estimatedTime":"4 weeks","previewFileId":"f71b0634-1af4-4c0f-940f-2da46747a5f8","createdByUserId":"462ac267-dcfd-40a1-937c-83fdb2e61769"}'

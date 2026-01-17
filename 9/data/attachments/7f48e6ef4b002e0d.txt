@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA4Ljg1MTY1MyIsInVzZXJfaWQiOiI0MzBlMGVlOC1lMjZhLTQ5MDctYTIzOC1kOWJhNTQyYjU3NTUifQ.3FaOv8NKgCX8q5eA9Ri3cIVgVJofdZvXbCqGAn-1yUE' \
+  -H 'content-length: 392' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Ground that agree truth answer.","maxScore":89,"minScore":19,"description":"Player deep man hard. Fall answer car teacher against.\nThank guess reduce central. Eight plant myself parent dream chair. Ground month community reason surface like.","estimatedTime":"9 weeks","previewFileId":"e7a34d37-5dac-4dfe-9f24-19a53b940437","createdByUserId":"84cbb6c0-650a-4df5-80da-377ee0a4e4d4"}'

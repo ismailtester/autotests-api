@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA5LjQzMjgxNCIsInVzZXJfaWQiOiJhMTY3ZDRjMC02NjkyLTQ5ZjQtOWRhOS1kNzk4MWI0MjM0MzcifQ.4lqYwSI3oiURhZ89MpbN3mwIBv_KZdWksQlwFvwfnoU' \
+  -H 'content-length: 413' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Describe among water role.","maxScore":54,"minScore":27,"description":"Member chair only price lose mouth. Agency whose her gas heavy.\nStaff may article against purpose deal economic. Consumer social education either brother own. Help both factor visit involve.","estimatedTime":"10 weeks","previewFileId":"287708fe-1798-4496-b0d9-363930615a09","createdByUserId":"a47e326f-a986-44e1-85e6-d7622def696b"}'

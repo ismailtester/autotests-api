@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA3LjEwNzg2MyIsInVzZXJfaWQiOiI3NTJmNGI1ZC1iZDA0LTRlYTctOTBiMy1kNDkyZDZiYTlkM2YifQ.45FPtpc_BjF_9EBVSQiQG8JyvVaoIncZrZ5UOQzw7UI' \
+  -H 'content-length: 392' \
+  -H 'content-type: application/json' \
+  -d '{"title":"According prove catch news size who tonight.","maxScore":58,"minScore":21,"description":"Yes billion reality care only. Fall face wall court deep specific politics once.\nIdentify have official before population figure. Use knowledge capital.","estimatedTime":"1 weeks","previewFileId":"b2d5ab33-1aa6-4506-b747-a4caf56081b7","createdByUserId":"f211b77b-9b0c-4444-bbc1-e33057eeeaea"}'

@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA1Ljk0NTgwNyIsInVzZXJfaWQiOiJmMGFiMmE2NC1hYTg5LTQ2MzMtOGFmZi01MTE4ZmZiNmFiYTgifQ.cCAA4CV1I5NKsGpHoU2wK38PiRIgkqpTqPM_dK8VEBE' \
+  -H 'content-length: 304' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Spring sort main quite onto.","maxScore":75,"minScore":2,"description":"Sense end her live activity they purpose. Arm hope generation phone likely use he.","estimatedTime":"4 weeks","previewFileId":"3146bc91-d9bc-4f00-8fa6-bcffcd773632","createdByUserId":"f0ab2a64-aa89-4633-8aff-5118ffb6aba8"}'

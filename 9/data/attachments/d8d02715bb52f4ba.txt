@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE3OjUwOjA3LjY5MTg0OCIsInVzZXJfaWQiOiJlNzgxZGVjYy05N2QzLTQ4YTEtOGZlMS0xZDdkYWVkNTk2YjcifQ.dHzDgGOyveasUfmoyQkKANaT-b8Z-ZVn7m_bi11bULc' \
+  -H 'content-length: 422' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Sign matter smile skill carry.","maxScore":95,"minScore":10,"description":"Huge stand fast magazine hit. Claim treat table table.\nWorld century see large. Tough truth staff ten prove admit I.\nCommunity size so successful. Growth health partner former later section term.","estimatedTime":"3 weeks","previewFileId":"28081983-dd5a-4357-8aa3-7e9f4b1471eb","createdByUserId":"df493245-009d-4111-bc28-d47ddc27ff80"}'
