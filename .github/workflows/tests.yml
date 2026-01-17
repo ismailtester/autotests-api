@@ -28,7 +28,6 @@ jobs:
       - name: Install test server dependencies
         run: pip install -r qa-automation-engineer-api-course/requirements.txt
 
-      # ВАЖНО: делаем БД уникальной на каждый запуск (чистая БД) и включаем debug-логи сервера
       - name: Start a test server (debug + logs)
         env:
           APP_HOST: "http://localhost:8000"
@@ -60,46 +59,58 @@ jobs:
           tail -n 300 server.log || true
           exit 1
 
-      # Быстрый smoke, чтобы сразу увидеть как сервер отвечает (и поймать traceback в server.log)
+      # Smoke: повторяем минимальный happy-path: users -> login -> files -> courses
+      # ВАЖНО: camelCase поля как ожидает сервер
       - name: create user + login + file + course (print responses)
         run: |
-          set -e
+          set -euo pipefail
 
           echo "== Create user =="
-          USER_JSON='{"email":"ci_user_'${{ github.run_id }}'@example.com","password":"Passw0rd!","last_name":"CI","first_name":"User","middle_name":"Run"}'
+          USER_EMAIL="ci_user_${{ github.run_id }}_${{ github.run_attempt }}@example.com"
+          USER_PASS="Passw0rd!"
+          USER_JSON=$(jq -nc \
+            --arg email "$USER_EMAIL" \
+            --arg password "$USER_PASS" \
+            --arg lastName "CI" \
+            --arg firstName "User" \
+            --arg middleName "Run" \
+            '{email:$email,password:$password,lastName:$lastName,firstName:$firstName,middleName:$middleName}')
+
           curl -sS -D /tmp/u.h -o /tmp/u.json -X POST http://localhost:8000/api/v1/users \
             -H "Content-Type: application/json" \
             -d "$USER_JSON" || true
           echo "--- headers ---"; cat /tmp/u.h || true
           echo "--- body ---"; cat /tmp/u.json || true
 
+          USER_ID=$(cat /tmp/u.json | jq -r '.user.id // empty')
+          if [ -z "$USER_ID" ]; then
+            echo "User id is empty -> failing."
+            tail -n 300 server.log || true
+            exit 1
+          fi
+
           echo "== Login =="
-          LOGIN_JSON='{"email":"ci_user_'${{ github.run_id }}'@example.com","password":"Passw0rd!"}'
+          LOGIN_JSON=$(jq -nc --arg email "$USER_EMAIL" --arg password "$USER_PASS" '{email:$email,password:$password}')
           curl -sS -D /tmp/l.h -o /tmp/l.json -X POST http://localhost:8000/api/v1/authentication/login \
             -H "Content-Type: application/json" \
             -d "$LOGIN_JSON" || true
           echo "--- headers ---"; cat /tmp/l.h || true
           echo "--- body ---"; cat /tmp/l.json || true
 
-          # Достаём access_token (jq есть на ubuntu-latest)
-          TOKEN=$(cat /tmp/l.json | jq -r '.token.access_token // empty')
+          TOKEN=$(cat /tmp/l.json | jq -r '.token.accessToken // empty')
           if [ -z "$TOKEN" ]; then
-            echo "Token is empty. Printing server log:"
+            echo "Token is empty -> failing."
             tail -n 300 server.log || true
             exit 1
           fi
 
           echo "== Create file =="
-          FILE_JSON='{"filename":"ci.png","directory":"tests","uploaded_by_user_id":"00000000-0000-0000-0000-000000000000"}'
-          # ВАЖНО: сервер обычно валидирует uploaded_by_user_id, поэтому берём реального user_id из /tmp/u.json
-          USER_ID=$(cat /tmp/u.json | jq -r '.user.id // empty')
-          if [ -z "$USER_ID" ]; then
-            echo "User id is empty. Printing server log:"
-            tail -n 300 server.log || true
-            exit 1
-          fi
-          FILE_JSON=$(jq -nc --arg filename "ci.png" --arg directory "tests" --arg uploaded_by_user_id "$USER_ID" \
-            '{filename:$filename,directory:$directory,uploaded_by_user_id:$uploaded_by_user_id}')
+          FILE_JSON=$(jq -nc \
+            --arg filename "ci.png" \
+            --arg directory "tests" \
+            --arg uploadedByUserId "$USER_ID" \
+            '{filename:$filename,directory:$directory,uploadedByUserId:$uploadedByUserId}')
+
           curl -sS -D /tmp/f.h -o /tmp/f.json -X POST http://localhost:8000/api/v1/files \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer '"$TOKEN"'" \
@@ -109,7 +120,7 @@ jobs:
 
           FILE_ID=$(cat /tmp/f.json | jq -r '.file.id // empty')
           if [ -z "$FILE_ID" ]; then
-            echo "File id is empty. Printing server log:"
+            echo "File id is empty -> failing."
             tail -n 300 server.log || true
             exit 1
           fi
@@ -118,12 +129,13 @@ jobs:
           COURSE_JSON=$(jq -nc \
             --arg title "CI Course" \
             --arg description "CI course description" \
-            --arg estimated_time "2 weeks" \
-            --arg preview_file_id "$FILE_ID" \
-            --arg created_by_user_id "$USER_ID" \
-            --argjson max_score 100 \
-            --argjson min_score 10 \
-            '{title:$title,max_score:$max_score,min_score:$min_score,description:$description,estimated_time:$estimated_time,preview_file_id:$preview_file_id,created_by_user_id:$created_by_user_id}')
+            --arg estimatedTime "2 weeks" \
+            --arg previewFileId "$FILE_ID" \
+            --arg createdByUserId "$USER_ID" \
+            --argjson maxScore 100 \
+            --argjson minScore 10 \
+            '{title:$title,maxScore:$maxScore,minScore:$minScore,description:$description,estimatedTime:$estimatedTime,previewFileId:$previewFileId,createdByUserId:$createdByUserId}')
+
           curl -sS -D /tmp/c.h -o /tmp/c.json -X POST http://localhost:8000/api/v1/courses \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer '"$TOKEN"'" \
@@ -131,8 +143,7 @@ jobs:
           echo "--- headers ---"; cat /tmp/c.h || true
           echo "--- body ---"; cat /tmp/c.json || true
 
-          STATUS=$(cat /tmp/c.h | head -n 1 || true)
-          echo "Course status line: $STATUS"
+          echo "== Done smoke =="
 
       - name: Install test dependencies
         run: pip install -r requirements.txt
@@ -140,7 +151,6 @@ jobs:
       - name: Run tests
         run: pytest -m regression --alluredir=allure-results -vv
 
-      # Всегда печатаем лог — чтобы даже при успехе видеть, что происходило
       - name: Print server log (last 400 lines)
         if: always()
         run: |
