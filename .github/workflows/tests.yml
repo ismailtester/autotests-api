@@ -67,7 +67,7 @@ jobs:
       # 8) Запускаем тесты
       - name: Run API tests with pytest and generate Allure results
         run: |
-          pytest -m regression --alluredir=allure-results --numprocesses 2
+          pytest -m regression --alluredir=allure-results
 
       # 9) Если тесты упали — показываем логи сервера (это ключевое)
       - name: Show server log on failure
