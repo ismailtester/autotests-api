@@ -35,7 +35,7 @@ jobs:
       - name: Install test server dependencies
         run: pip install -r qa-automation-engineer-api-course/requirements.txt
 
-      # 5. Шаг для запуска тестового сервера с необходимыми переменными окружения
+      # 5. Шаг для запуска тестового сервера с необходимыми переменными окруженияd
       - name: Start a test server
         env:
           APP_HOST: "http://localhost:8000"  # Устанавливаем адрес хоста сервера
