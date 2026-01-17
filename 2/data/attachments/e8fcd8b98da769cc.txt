@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE2OjUxOjEwLjU1NTE4OCIsInVzZXJfaWQiOiI1MzM1NjhkNC0xOGZkLTRhMWQtODIyNi05M2VmZTMyODkyNTgifQ.iG1p5eu83dHX6JYxsDQeRymOGB5AlX1KzkK2SYhHziM' \
+  -H 'content-length: 395' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Politics power wrong.","maxScore":53,"minScore":28,"description":"Evening politics where work among. Laugh along discuss century morning commercial and. Situation particular floor pick account argue whatever. Account air involve care individual.","estimatedTime":"2 weeks","previewFileId":"37dd8d20-1242-48e4-8b79-ad7fe547e09b","createdByUserId":"e354c4c3-5ea1-4e7f-8ecb-210200fa1db3"}'

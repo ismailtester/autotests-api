@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE2OjUxOjA5LjM4NzAxOCIsInVzZXJfaWQiOiI4NGEyYWQzZi1hOTU3LTRmNzQtYTVhZS05NjgzYjcyMTE3NjAifQ.fXcYgOx8ImtfoUC-EraNeOPP_LW5WRBErvZbQUI48HU' \
+  -H 'content-length: 365' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Against yet focus herself.","maxScore":50,"minScore":28,"description":"Generation individual investment heavy region heart particular act. Offer approach short avoid. Address home actually hold class myself memory.","estimatedTime":"10 weeks","previewFileId":"a6a53cc1-4901-43b8-ac27-28e1f9eda09d","createdByUserId":"0083e78a-53d6-45c1-a8fd-1344353c96e4"}'

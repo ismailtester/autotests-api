@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE2OjUxOjA4LjE5NTAzNyIsInVzZXJfaWQiOiJmZWRjYjI2ZS1iOWY4LTRjNWEtOGEzZS1lNGI1MWMyNWIxY2MifQ.Q-hv3K-qv2CEwmaGMAJd8I9Wsn3mAl5plznxgchfbas' \
+  -H 'content-length: 383' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Line language during through and.","maxScore":58,"minScore":30,"description":"Serious she room thus so baby traditional provide. Health with your people.\nShow offer true say product. Attorney cultural particularly with choice foot.","estimatedTime":"10 weeks","previewFileId":"eebde63d-4280-4458-8543-32ea45ed0654","createdByUserId":"8c4fe7e4-29c2-432f-a10d-2231fee8ee75"}'

@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE2OjUxOjA3LjAyMjI5NyIsInVzZXJfaWQiOiI3NWZiNTcxZi1jZjRmLTRmM2YtYWRiMC03NGM5ZDA2N2ZiZDgifQ.Nx9abkRUhfGojaKReUyNUl1BEGpYOO6yE8Me11q2YcI' \
+  -H 'content-length: 365' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Pass owner particular situation not increase hold.","maxScore":51,"minScore":30,"description":"Election health ten decade assume goal three speech. Heart ever table official ten spring. Watch anything attorney plan.","estimatedTime":"6 weeks","previewFileId":"e0693d09-f915-4834-a839-a7cc6d967052","createdByUserId":"75fb571f-cf4f-4f3f-adb0-74c9d067fbd8"}'

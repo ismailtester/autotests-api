@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE2OjUxOjA3LjI5NzI2OSIsInVzZXJfaWQiOiI1N2M5NmQyOS05NzY3LTRiY2UtYWFmNS0zZDU3NTIyMGVkMDIifQ.p_TYGHUmLf3djz5sFjZChp6ILBHgAiLAoXQa6G1Db6w' \
+  -H 'content-length: 332' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Game series buy dog whether.","maxScore":80,"minScore":3,"description":"Last single stuff resource place pick explain. Budget clearly per her dark be. Address present treatment five.","estimatedTime":"3 weeks","previewFileId":"818bbef6-77a2-456f-97de-6f2eaddfccf3","createdByUserId":"64fffe93-2fe6-4a8f-bf27-e2a3c25c1c1a"}'

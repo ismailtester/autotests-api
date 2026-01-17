@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE2OjUxOjA5LjY1OTQ5NiIsInVzZXJfaWQiOiIwMTI1ODIyZi0zMTgzLTQ3MzktOWQyYS02ZjA5NDRiMThmNWEifQ.qHMujB3rInOY5vrcYKUl2IiAZePvjfY5dXNbOYUtgTU' \
+  -H 'content-length: 400' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Road for put.","maxScore":79,"minScore":4,"description":"Difference during our. Television time who. Student during born within language color business.\nPopular own it skill total professional south. Dream recent reveal decision process enjoy thing.","estimatedTime":"4 weeks","previewFileId":"38f9131a-becc-4008-a9cc-f53c2a30ccd7","createdByUserId":"a1cd99ff-b503-4e8f-8c60-c30b647fe24d"}'
