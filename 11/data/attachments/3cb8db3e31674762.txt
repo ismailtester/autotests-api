@@ -1,0 +1,18 @@
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/users
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/users
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/authentication/login
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/authentication/login
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/files
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/files
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/courses
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/courses
+INFO     BASE_ASSERTIONS:base.py:17 Check that response status code equals to 200
+INFO     COURSES_ASSERTIONS:courses.py:76 Check create course response
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'title' equals to Camera lose teach off operation.
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'max_score' equals to 95
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'min_score' equals to 13
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'description' equals to Source apply window where tend. Write politics operation able. Here exist ok special recently require outside.
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'estimated_time' equals to 2 weeks
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'preview_file_id' equals to 458c5d23-c72b-421b-a414-eeec274cf0e4
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'created_by_user_id' equals to d78aca34-c3e9-4342-984f-5c98b8a2ffa6
+INFO     SCHEMA_ASSERTIONS:schema.py:19 Validation JSON schema

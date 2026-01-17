@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE4OjMxOjQ1LjE3MjI4MiIsInVzZXJfaWQiOiIyNWYwMDg1ZC1iMDBiLTQ3NTgtOWZmOS1jNzIzOTE0MTE3Y2EifQ.i3tgbLT3ZT-legJpQbnm6l6TSg7r8fj0OV5b0FAL-jM' \
+  -H 'content-length: 367' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Strong possible news country trouble imagine.","maxScore":68,"minScore":10,"description":"Half society decade recently analysis young whom character. Have wide hard ready dark unit. Majority phone economic recent say.","estimatedTime":"3 weeks","previewFileId":"345c1156-59f2-44c6-8324-503d74cc0b6f","createdByUserId":"227d048a-0ba2-4101-87f0-377222d740c1"}'

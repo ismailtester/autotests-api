@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE4OjMxOjQ2LjMzNTA4NCIsInVzZXJfaWQiOiJhMzdlNzMxNy0zNDA3LTQ0MTEtOWEwOC1jOWI1MDhjZjg1YWQifQ.ZfBESOhdx936UJ2VBTLgkYBUdVX5fs8YRBlIWACwIC8' \
+  -H 'content-length: 381' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Two level energy what popular teach order.","maxScore":75,"minScore":16,"description":"Turn plan hour base. Cup recognize truth knowledge about kitchen.\nPut despite whom pass total tonight party. Several new writer form pass keep.","estimatedTime":"7 weeks","previewFileId":"fbf237ea-1d0d-4961-bff7-b505703445f7","createdByUserId":"46b0a51d-dd6d-4852-91df-de9ec3d83d84"}'

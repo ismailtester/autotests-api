@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE4OjMxOjQ2LjkxODYxNSIsInVzZXJfaWQiOiIxYzUyMTUxZS1hOGVhLTQ5NDktYTVhMS04MGRmNTliY2RmN2IifQ.qfI-MxdqCC6t4Po7Nw6a7TzIr4TBYSRZTGbyNVFe0pg' \
+  -H 'content-length: 374' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Quality cut price southern with need politics call.","maxScore":56,"minScore":1,"description":"Image big method develop yes significant campaign. Girl score scene feeling speak money wrong boy. Garden figure they rest which.","estimatedTime":"7 weeks","previewFileId":"fe7d6d6a-36b2-4ea2-9156-2f08762c59bc","createdByUserId":"c2aeb999-1770-4227-9c4d-bc61c02f30fc"}'

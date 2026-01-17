@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE3VDE4OjMxOjQ0LjU5NDE1MCIsInVzZXJfaWQiOiIwYTRhNDhlMi05OGQ2LTRiMTUtYWU5Zi03MzlmNjcyZWE2MjAifQ.BKm1s5yFR9NCjQn9hW95SzoMPLAEoA2ZhU_HzDU-u1w' \
+  -H 'content-length: 379' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Build person door month blue truth church cup.","maxScore":63,"minScore":9,"description":"Value necessary simply fill recognize spend. Money take threat hold race against cover. Recently result type seek brother score population.","estimatedTime":"4 weeks","previewFileId":"321db7aa-ffd7-4ec4-9f61-7b317860505f","createdByUserId":"901f5dac-3e6c-4c2c-bb50-119d21f02e5d"}'
