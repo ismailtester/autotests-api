@@ -12,10 +12,11 @@ from clients.event_hooks import curl_event_hook, log_request_event_hook, log_res
 
 
 
-class AuthenticationUserSchema(BaseModel, frozen=True):  # Добавили параметр frozen=True
+class AuthenticationUserSchema(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
     email: str
     password: str
-
 
 @lru_cache(maxsize=None)  # Кешируем возвращаемое значение
 def get_private_http_client(user: AuthenticationUserSchema) -> Client:
