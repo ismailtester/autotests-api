@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjAyOjA2LjM1Nzc4MiIsInVzZXJfaWQiOiI4ZThhMWNmMC1jYmI4LTQ4MmMtODJhMC02NjJhMGM2YzU1Y2MifQ.ZaA_j7dA2PmEPojxx9D6ZiZrd3N0o9LyfZoQUBjnTKA' \
+  -H 'content-length: 437' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Popular join discover education customer dark.","maxScore":83,"minScore":28,"description":"Keep tree someone second candidate. Father now few property boy ball.\nOfficial from senior. Keep PM participant PM national fly perhaps.\nWish day score by. Serious foreign research control past.","estimatedTime":"8 weeks","previewFileId":"059fdb1a-702e-45af-bd12-2266dffe84a2","createdByUserId":"4e4fa0c8-354b-4ce1-b902-76108fd13537"}'

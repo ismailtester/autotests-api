@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjAyOjAyLjI4NjY0OSIsInVzZXJfaWQiOiI0MmJjYWI2NC02OTc2LTQyYTEtODExNS1mNDA1Zjc3OTQwODAifQ.mNTakzPnaR8uHOezCFQehQCAkElGdAcC-hwCePBjof0' \
+  -H 'content-length: 417' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Into sort water participant make environmental.","maxScore":59,"minScore":20,"description":"Where matter soon imagine ok.\nResponsibility make range. While voice change hit in body poor guess. Also two against.\nDuring increase again heavy. Two probably plant after.","estimatedTime":"10 weeks","previewFileId":"ac3ce1bf-1b70-46d6-9254-049b0440455c","createdByUserId":"d12b1c18-20b5-4791-a645-8efca339ab96"}'

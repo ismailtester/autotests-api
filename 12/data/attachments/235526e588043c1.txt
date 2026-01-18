@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjAyOjA1LjIwMTU2NiIsInVzZXJfaWQiOiJlMjViOGM1MC1mZTk3LTRmNzItOGZhNi0zM2I2MzY2YmY3OGEifQ.JHs_SzxzLjLMWUrDukLQ55vJLFlJlO8wGZ91LBOC62U' \
+  -H 'content-length: 401' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Help its can site effect wind data keep.","maxScore":57,"minScore":1,"description":"Establish budget audience president lead thank produce sure. Somebody particularly couple yet throw.\nProbably get give think. Government focus entire ability author.","estimatedTime":"10 weeks","previewFileId":"a1f3aa93-62f2-4464-b7ef-0d3d05fc8667","createdByUserId":"952e10af-9c2e-47af-a4cc-aacf1d740fd2"}'

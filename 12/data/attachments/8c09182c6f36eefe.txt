@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjAyOjA0LjYyMzQ4MyIsInVzZXJfaWQiOiI2NTNkN2U2ZS0wMjE3LTQzODQtYTdjYi1jNWNhOGYwYjYzOTYifQ.D5YKvrGhvBbYBkxR9kE89cDCKztIoAAf5OgSYF2g4aI' \
+  -H 'content-length: 344' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Whole need glass half.","maxScore":97,"minScore":28,"description":"Practice smile white board. Suddenly trial help news responsibility.\nEspecially should public speech. Four news wind language.","estimatedTime":"4 weeks","previewFileId":"e3b8d2dc-80d1-47de-ae7f-8e63df9ae6b7","createdByUserId":"50601802-f29f-4375-9c3a-1ebf9a1ddc9b"}'

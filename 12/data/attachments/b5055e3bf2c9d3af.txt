@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjAyOjAzLjQ1NzgxOCIsInVzZXJfaWQiOiJjZDI4OTM0My1mYzczLTQzODYtYTJmZC0xMGFkMmE5ZGJmNDIifQ.lWmZriNA17KIIuPwVOG-9RZxmHsvh77vQrvvybkNRrs' \
+  -H 'content-length: 391' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Fund certain significant individual yourself positive really.","maxScore":81,"minScore":2,"description":"Technology drug program effect seem.\nPerform I often stock follow role. Tough much assume only. Similar important smile word official.","estimatedTime":"10 weeks","previewFileId":"e5f2e883-78d3-4c7d-95f2-f8621797d70a","createdByUserId":"2b088c31-7f2b-41f0-a166-1028126fb69a"}'

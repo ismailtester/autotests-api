@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjAyOjA0LjAzODgxMCIsInVzZXJfaWQiOiIxYWE0NTJhOS04ODZhLTQ5ZGMtOGY1YS1lMTJjMjQ0NTM0NTQifQ.thtEbEXYzrTm-i4Zkf3xTHOK3xF-Ekm3gnJ9AKIDrD0' \
+  -H 'content-length: 336' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Choice under body marriage mean stop.","maxScore":81,"minScore":8,"description":"Fight foot investment for other. Everything building myself. Manage wear statement in. Apply evening too.","estimatedTime":"9 weeks","previewFileId":"d83839f4-1503-4a3c-88b2-20094472f9a9","createdByUserId":"a0952318-340b-4cc4-be28-f796664217c2"}'

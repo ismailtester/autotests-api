@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjAyOjAyLjg3MjU5NiIsInVzZXJfaWQiOiI3OWZhODg3Zi1kMDI3LTQyY2EtYjA5Ni01NDY1YWE0YzAxYjQifQ.f-E1UZO6qtmIzgxnmtSvVIJCfKufHD_UXB_bkWT6Cn8' \
+  -H 'content-length: 438' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Despite first institution thing past thank.","maxScore":51,"minScore":18,"description":"Choose compare white range pattern expert the. Forget budget court could treat. Happy every only.\nMyself away benefit. Question weight cut watch common bit. Somebody name next similar nice majority.","estimatedTime":"10 weeks","previewFileId":"f411f37e-9c84-436e-9eab-240fd27cc3d0","createdByUserId":"79fa887f-d027-42ca-b096-5465aa4c01b4"}'
