@@ -1,5 +1,4 @@
 from http import HTTPStatus
-from uuid import uuid4
 
 import allure
 import pytest
@@ -38,13 +37,7 @@ class TestCourses:
                            courses_client: CoursesClient,
                            function_user: UserFixture,
                            function_file: FileFixture):
-        trace_id = uuid4().hex[:8]
-        request = CreateCourseRequestSchema(
-            title=f"ci-debug-{trace_id}",
-            createdByUserId=function_user.user_id,
-            previewFileId=function_file.file_id,
-        )
-        print(f"[course {trace_id}] payload={request.model_dump(by_alias=True)}")
+        request = CreateCourseRequestSchema(createdByUserId=function_user.user_id, previewFileId=function_file.file_id)
         response = courses_client.create_course_api(request)
         response_data = CreateCourseResponseSchema.model_validate_json(response.text)
 
