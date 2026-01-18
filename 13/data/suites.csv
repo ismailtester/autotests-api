@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","29","Create course","LMS service","Sun Jan 18 14:04:11 UTC 2026","passed","Sun Jan 18 14:04:11 UTC 2026","Create entity","Courses","",""
+"","0","Get courses","LMS service","Sun Jan 18 14:04:11 UTC 2026","broken","Sun Jan 18 14:04:11 UTC 2026","Get entities","Courses","",""
+"","282","Login with correct email and password","LMS service","Sun Jan 18 14:04:11 UTC 2026","passed","Sun Jan 18 14:04:11 UTC 2026","Login","Authentication","",""

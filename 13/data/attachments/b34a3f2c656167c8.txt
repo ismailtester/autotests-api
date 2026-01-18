@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjM0OjExLjkxMjI0NSIsInVzZXJfaWQiOiI1NWE5MmUzMS0yZmQ1LTRiN2ItOWIyMi0zZWZkN2M1OGIyY2QifQ.CzaA4wlaFHD1PZXrcHAJIaU9hTH2bca-3GY-p01SdW0' \
+  -H 'content-length: 342' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Economic perhaps yet would foot.","maxScore":73,"minScore":24,"description":"Team why station have many seek. Memory southern impact crime whom change. Go stuff oil foreign admit plan include.","estimatedTime":"7 weeks","previewFileId":"f399276c-d48c-4cda-98fb-4d8bd56c22de","createdByUserId":"55a92e31-2fd5-4b7b-9b22-3efd7c58b2cd"}'

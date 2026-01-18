@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE0OjM0OjEyLjU4NTc3NiIsInVzZXJfaWQiOiI5M2I1ODhiYi0wMzFjLTQ0MzYtYmRiMi1jMGUzODgzZGYzOWMifQ.NaoYl5Y3FZHeJosirJR9IzZibxM22HLa2sYkmoEibzM' \
+  -H 'content-length: 340' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Beat single billion stop.","maxScore":98,"minScore":28,"description":"Training involve back peace. Small deep onto subject.\nEvent later off really teach cold ever. Week position quite let.","estimatedTime":"10 weeks","previewFileId":"e4b74aed-0612-4624-9d05-e904a534e8ce","createdByUserId":"b57576c9-3107-4330-8bc4-07a0adb0e913"}'
