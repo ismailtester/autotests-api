@@ -1,11 +1,9 @@
 from httpx import Client
 from pydantic import BaseModel, ConfigDict
 from config import settings
-
+from functools import lru_cache
 from clients.authentication.authentication_client import get_authentification_client
 from clients.authentication.authentication_schema import LoginRequestSchema
-from cachetools import TTLCache, cached
-from datetime import timedelta
 
 from clients.event_hooks import curl_event_hook, log_request_event_hook, log_response_event_hook
 
@@ -13,15 +11,13 @@ from clients.event_hooks import curl_event_hook, log_request_event_hook, log_res
 #ТУТ НУЖЕН РЕФАКТОРИНГ
 
 
-class AuthenticationUserSchema(BaseModel):  # Структура данных пользователя для авторизации
-    model_config = ConfigDict(frozen=True)
+
+class AuthenticationUserSchema(BaseModel, frozen=True):  # Добавили параметр frozen=True
     email: str
     password: str
 
-cache = TTLCache(maxsize=128, ttl=timedelta(minutes=30).total_seconds())
 
-
-@cached(cache)
+@lru_cache(maxsize=None)  # Кешируем возвращаемое значение
 def get_private_http_client(user: AuthenticationUserSchema) -> Client:
     """
     Функция создает экземпляр httpx.Client с аутентификацией пользователя.
