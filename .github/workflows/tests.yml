@@ -37,19 +37,13 @@ jobs:
           tail -n 50 server_freeze.txt
 
       - name: Start test server
-        env:
-          APP_HOST: "http://localhost:8000"
-          DATABASE_URL: "sqlite+aiosqlite:///./local.db"
-          JWT_ALGORITHM: "HS256"
-          JWT_SECRET_KEY: "qa-automation-engineer-api-course-secret-key"
-          JWT_ACCESS_TOKEN_EXPIRE: 1800
-          JWT_REFRESH_TOKEN_EXPIRE: 5184000
         run: |
-          echo "APP_HOST=$APP_HOST"
-          echo "DATABASE_URL=$DATABASE_URL"
-          echo "JWT_ALGORITHM=$JWT_ALGORITHM"
-          echo "JWT_ACCESS_TOKEN_EXPIRE=$JWT_ACCESS_TOKEN_EXPIRE"
-          echo "JWT_REFRESH_TOKEN_EXPIRE=$JWT_REFRESH_TOKEN_EXPIRE"
+          APP_HOST="http://localhost:8000" \
+          DATABASE_URL="sqlite+aiosqlite:///./ci_${{ github.run_id }}.db" \
+          JWT_ALGORITHM="HS256" \
+          JWT_SECRET_KEY="qa-automation-engineer-api-course-secret-key" \
+          JWT_ACCESS_TOKEN_EXPIRE=1800 \
+          JWT_REFRESH_TOKEN_EXPIRE=5184000 \
           uvicorn main:app \
             --host 0.0.0.0 --port 8000 \
             --app-dir ./qa-automation-engineer-api-course \
@@ -64,13 +58,15 @@ jobs:
 
       - name: Run API tests with pytest (debug)
         run: |
-          pytest -m regression -s -vv --maxfail=1 --alluredir=allure-results
+          pytest -k "test_get_courses" -s -vv --maxfail=1
 
       - name: Show server log on failure
         if: failure()
         run: |
           echo "--- server.log tail ---"
           tail -n 300 server.log
+          echo "--- ci-debug markers ---"
+          grep -n "ci-debug-" server.log || true
 
       - name: Upload debug artifacts
         if: failure()

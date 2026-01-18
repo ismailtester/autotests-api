@@ -1,5 +1,6 @@
 import pytest
 from pydantic import BaseModel
+from uuid import uuid4
 
 from clients.courses.courses_client import get_courses_client, CoursesClient
 from clients.courses.courses_schema import CreateCourseRequestSchema, CreateCourseResponseSchema
@@ -30,6 +31,10 @@ def function_course(
         files_client: FilesClient,
         private_users_client: PrivateUsersClient,
 ) -> CourseFixture:
+    trace_id = uuid4().hex[:8]
+    print(f"[course {trace_id}] function_user.user_id={function_user.user_id}")
+    print(f"[course {trace_id}] function_file.file_id={function_file.file_id}")
+
     # 1) кто мы по токену
     me_resp = private_users_client.get_user_me_api()
     print("me:", me_resp.status_code, me_resp.text)
@@ -41,11 +46,12 @@ def function_course(
 
     # 3) что реально уходит в /courses
     request = CreateCourseRequestSchema(
+        title=f"ci-debug-{trace_id}",
         preview_file_id=function_file.file_id,
         created_by_user_id=function_user.user_id,
     )
     print("created_by_user_id:", function_user.user_id, "me_id:", me_id)
-    print("payload:", request.model_dump(by_alias=True))
+    print(f"[course {trace_id}] payload:", request.model_dump(by_alias=True))
 
     response = courses_client.create_course(request)
     return CourseFixture(request=request, response=response)
