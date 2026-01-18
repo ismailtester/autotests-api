@@ -5,7 +5,7 @@ class UserSchema(BaseModel):
     """
     Описание структуры пользователя.
     """
-    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True) #Позволяет при создании модели использовать как snake_case так и camelCase
+    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True, populate_by_name=True) #Позволяет при создании модели использовать как snake_case так и camelCase
     id: str
     email: EmailStr
     last_name: str = Field(alias="lastName")
@@ -17,7 +17,7 @@ class CreateUserRequestSchema(BaseModel):
     """
     Описание структуры запроса для создания пользователя.
     """
-    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True)
+    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True, populate_by_name=True)
 
     email: EmailStr = Field(default_factory=fake.email)
     password: str = Field(default_factory=fake.password)
@@ -36,7 +36,7 @@ class UpdateUserRequestSchema(BaseModel):
     """
     Описание структуры запроса для частичного обновления данных пользователя.
     """
-    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True) #Позволяет при создании модели использовать как snake_case так и camelCase
+    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True, populate_by_name=True) #Позволяет при создании модели использовать как snake_case так и camelCase
 
     email: EmailStr | None = Field(default_factory=fake.email)
     last_name: str | None = Field(alias="lastName", default_factory=fake.last_name)

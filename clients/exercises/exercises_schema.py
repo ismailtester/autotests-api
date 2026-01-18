@@ -5,7 +5,7 @@ class Exercise(BaseModel):
     """
     Описание структуры запроса упражнения.
     """
-    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True)  #Позволяет при создании модели использовать как snake_case так и camelCase
+    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True, populate_by_name=True)  #Позволяет при создании модели использовать как snake_case так и camelCase
     id: str
     title: str
     course_id: str = Field(alias="courseId")
@@ -47,7 +47,7 @@ class GetExercisesQuerySchema(BaseModel):
     """
     Описание структуры запроса на получение списка упражнений определенного курса.
     """
-    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True)
+    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True, populate_by_name=True)
     course_id: str = Field(alias="courseId")
 
 class CreateExercisesRequestSchema(BaseModel):
@@ -66,7 +66,7 @@ class UpdateExercisesRequestSchema(BaseModel):
     """
     Описание структуры запроса для обновления информации об упражнении.
     """
-    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True)
+    model_config = ConfigDict(validate_by_alias=True, validate_by_name=True, populate_by_name=True)
 
     title: str | None = Field(default_factory=fake.sentence)
     max_score: int | None = Field(alias="maxScore", default_factory=fake.max_score)
