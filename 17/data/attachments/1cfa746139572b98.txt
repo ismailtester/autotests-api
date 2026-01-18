@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE1OjQ2OjA1LjM2Mjg3OSIsInVzZXJfaWQiOiI0NDNjNzFjMC1hNDMxLTQ3MzQtYWUwZi00NjQ1ZjczY2IwYzcifQ.l1CkFOTUFrjxNdMctQ-WmlNb4Wl9x_ahMA8i3wMQGJQ' \
+  -H 'content-length: 386' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Mention coach blue.","maxScore":70,"minScore":9,"description":"Night third piece cover. Until home own apply he. Step affect mother.\nProduct officer owner industry. Star democratic defense door. East visit TV nation land something nor.","estimatedTime":"4 weeks","previewFileId":"b1e6b79e-0731-48a2-bd6e-759b32b6ca25","createdByUserId":"443c71c0-a431-4734-ae0f-4645f73cb0c7"}'

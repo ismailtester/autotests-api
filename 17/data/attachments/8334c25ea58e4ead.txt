@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE1OjQ2OjA1LjYzNjU2NiIsInVzZXJfaWQiOiJlNDFlZTgzOC02YzIyLTQ3ZDAtOTBjZS1mYjM3ZTM1ODEyZDgifQ.D8WiZf08kD09E2FK7IW_3pSj_tXk2l2PNAGu0YGBWPM' \
+  -H 'content-length: 371' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Almost determine ask.","maxScore":89,"minScore":30,"description":"Maybe research whatever understand. Himself soon message send explain peace. Up home low black movie several building. Team risk listen.\nAbove until open.","estimatedTime":"7 weeks","previewFileId":"e502c2c4-2fa4-4549-bd74-ed0fc3ea4951","createdByUserId":"e41ee838-6c22-47d0-90ce-fb37e35812d8"}'

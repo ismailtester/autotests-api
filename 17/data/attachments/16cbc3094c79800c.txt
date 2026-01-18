@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE1OjQ2OjA0LjQ0MTE1MyIsInVzZXJfaWQiOiI4ZmRmZTllYy0wMDJkLTQyOTgtODM5Ny01OWM1OWZhM2VkOWUifQ.N1RiVErjujTWYqlvL9S8hcHv6GV1tqoqpPnO7BxCqAM' \
+  -H 'content-length: 409' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Try pick firm financial half ahead should.","maxScore":63,"minScore":11,"description":"Surface final range man wonder many career. Federal coach term himself civil care. Then bad Republican wait little whole better.\nThing animal sell. Man very federal along.","estimatedTime":"8 weeks","previewFileId":"bf4bfeb3-6a49-47e4-aa17-06f0c4c76b8e","createdByUserId":"8fdfe9ec-002d-4298-8397-59c59fa3ed9e"}'

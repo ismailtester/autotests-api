@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE1OjQ2OjA0LjE2NzYwNCIsInVzZXJfaWQiOiIxODYyNTZmZi02N2Y0LTQ4MjMtYjFiNS04MGZkODhkMjM3OGYifQ.TSuRERFdE6ldefJTb94DpNyxXtInUCmGiK8tcO2n7_o' \
+  -H 'content-length: 318' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Eat red business former bed for for.","maxScore":85,"minScore":11,"description":"Night girl focus institution relate hope character. Throughout subject catch fall want.","estimatedTime":"7 weeks","previewFileId":"fc9c0402-e876-4207-9fe1-1fe61f7e868f","createdByUserId":"186256ff-67f4-4823-b1b5-80fd88d2378f"}'

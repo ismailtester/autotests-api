@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/exercises' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE1OjQ2OjAzLjI4MzM2NSIsInVzZXJfaWQiOiI2YWZhOWUyNC1kN2FkLTQxOGItYjZjOS01ZTgxNzQyMDdmNmEifQ.a006-ogbs-A_WG7VDkfFVn_tRViVn6kXWmjzb-YetjU' \
+  -H 'content-length: 260' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Produce every door process.","courseId":"4d716593-cd13-4efb-938b-7691215fae70","maxScore":59,"minScore":5,"orderIndex":77,"description":"Organization government TV truth save since someone. Performance when thought travel.","estimatedTime":"7 weeks"}'

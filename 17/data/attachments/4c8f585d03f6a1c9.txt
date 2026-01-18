@@ -1,0 +1,11 @@
+curl -X 'PATCH' \
+  'http://localhost:8000/api/v1/courses/8b544dd7-6416-4284-9309-a93943584138' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE1OjQ2OjAyLjY5OTUxNiIsInVzZXJfaWQiOiJiYmU4Y2NiYy1jY2Q3LTQ0YzctYTU0Yy1iNGU1MDBjODIxZGQifQ.C0zAkH8xCZaaa-tQL6ASbjq85rr1DafL_6BRREU1yZk' \
+  -H 'content-length: 227' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Discuss save tax ability type agent.","maxScore":74,"minScore":19,"description":"Health help statement floor south wear. Trade have such sister about full. Despite environmental technology.","estimatedTime":"6 weeks"}'

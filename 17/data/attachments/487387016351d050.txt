@@ -1,0 +1,26 @@
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/users
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/users
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/authentication/login
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/authentication/login
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/files
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/files
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/courses
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/courses
+INFO     HTTP_LOGGER:event_hooks.py:27 Make POST request to http://localhost:8000/api/v1/exercises
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/exercises
+INFO     HTTP_LOGGER:event_hooks.py:27 Make GET request to http://localhost:8000/api/v1/exercises?courseId=37af5f1f-ef65-4742-be33-bc909f3b225e
+INFO     HTTP_LOGGER:event_hooks.py:36 Got response 200 OK from http://localhost:8000/api/v1/exercises?courseId=37af5f1f-ef65-4742-be33-bc909f3b225e
+INFO     BASE_ASSERTIONS:base.py:17 Check that response status code equals to 200
+INFO     EXERCISES_ASSERTIONS:exercises.py:105 Check get exercises response
+INFO     BASE_ASSERTIONS:base.py:68 Check that lenght of 'exercises' equals to 1
+INFO     EXERCISES_ASSERTIONS:exercises.py:39 Check exercise
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'id' equals to 467f73e9-95f2-49ba-8727-6ea8374d9638
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'title' equals to Sit source item senior treat raise expect.
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'course_id' equals to 37af5f1f-ef65-4742-be33-bc909f3b225e
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'max_score' equals to 68
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'min_score' equals to 6
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'order_index' equals to 33
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'description' equals to Process could good morning. Join soon maybe though ago center.
+Large cultural bar court fly. Everyone international response cover need coach beautiful.
+INFO     BASE_ASSERTIONS:base.py:34 Check that 'estimated_time' equals to 4 weeks
+INFO     SCHEMA_ASSERTIONS:schema.py:19 Validation JSON schema

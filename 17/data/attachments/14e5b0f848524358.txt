@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTE4VDE1OjQ2OjAyLjA0OTQ5MyIsInVzZXJfaWQiOiJlOGNhOWJmMS1mMjNhLTRlNmItODhkMS03YjBkMDc4ZDI2ZDAifQ.ZNc9058Z3Uw7w2XNIMy2RvcSS9_6XALhErXrkz83yEk' \
+  -H 'content-length: 393' \
+  -H 'content-type: application/json' \
+  -d '{"title":"With present here career force create.","maxScore":81,"minScore":25,"description":"Green vote share among. Instead data own low difficult science such. Difficult participant discussion Mr child team single career.\nUnderstand fund later large.","estimatedTime":"2 weeks","previewFileId":"b276620b-1bed-4bf7-a1fc-20aaa5a6ccdf","createdByUserId":"e8ca9bf1-f23a-4e6b-88d1-7b0d078d26d0"}'
