@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTIxVDE3OjAxOjUzLjgyNTE1MCIsInVzZXJfaWQiOiJjNjM5Yzg0Yi03NzU5LTRhYmEtYmU1Ny00YTNhOGFmMTc0YzgifQ.BljULXEgH39nmXQM3IZB8nQJEubun-RpJZfAw7imgHw' \
+  -H 'content-length: 338' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Player single thank soldier.","maxScore":89,"minScore":14,"description":"Site owner may son brother foot interest ok. Experience film last discover. Bring beat team debate listen attorney.","estimatedTime":"9 weeks","previewFileId":"2923c96b-b947-4b9b-9090-a53c8d35a3bb","createdByUserId":"c639c84b-7759-4aba-be57-4a3a8af174c8"}'

@@ -1,0 +1,11 @@
+curl -X 'PATCH' \
+  'http://localhost:8000/api/v1/exercises/2f931d49-e186-4d15-9240-b552f74d3cfa' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTIxVDE3OjAxOjUyLjM1MjEyMCIsInVzZXJfaWQiOiI4Y2NhZWQ4ZC1lMzZmLTQ1OGItODQ3Ni03ODk3OTUxYjRlNGYifQ.m9lnyUgvHOvc6MXOzuhsnkFB4CvZ9Y-2CTR31oY32TI' \
+  -H 'content-length: 315' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Bring chair another ball it trip.","maxScore":87,"minScore":6,"orderIndex":64,"description":"Military society pick set grow focus charge. Up drive stop feeling know business nothing. South and important deep list once station.\nProject late executive fill study tough yourself.","estimatedTime":"9 weeks"}'

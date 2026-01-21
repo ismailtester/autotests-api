@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/exercises' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTIxVDE3OjAxOjUyLjM1MjEyMCIsInVzZXJfaWQiOiI4Y2NhZWQ4ZC1lMzZmLTQ1OGItODQ3Ni03ODk3OTUxYjRlNGYifQ.m9lnyUgvHOvc6MXOzuhsnkFB4CvZ9Y-2CTR31oY32TI' \
+  -H 'content-length: 376' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Sign final from attention employee.","courseId":"be4cc8f6-e4d6-42e4-889e-caa81f09aa64","maxScore":79,"minScore":11,"orderIndex":36,"description":"Day deal first only wife. Soon education wall bag station deal rather.\nYour million capital lead court music whatever. Easy him least every. Nor rather maybe fill really receive simply water.","estimatedTime":"9 weeks"}'

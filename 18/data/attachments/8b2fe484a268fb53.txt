@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTIxVDE3OjAxOjUyLjYyNDcyNyIsInVzZXJfaWQiOiJlZTQ2YzJiOC0yNmEyLTRjNGQtYTE4Ny03MTYxODYxMGQ5NGYifQ.ALcWAeGG8LNScp6w1U6EqhIg5xWKcsGUP-An8eYoNNQ' \
+  -H 'content-length: 419' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Certainly base way laugh buy across population candidate.","maxScore":87,"minScore":23,"description":"Theory leg century reduce child address power also. Tell dream process head activity wall own again.\nThing audience civil so brother. Sign power operation record low.","estimatedTime":"8 weeks","previewFileId":"ece96e2d-f2d8-4dce-ab15-841991cc48cc","createdByUserId":"ee46c2b8-26a2-4c4d-a187-71618610d94f"}'

@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTIxVDE3OjAxOjUxLjE1MzYwOCIsInVzZXJfaWQiOiI4ZmZlZDlkYy00YzE0LTQxMGMtYjY1NC1lNDA3ZTU3Y2Y0YmUifQ.2v2QvE3LhsEIdOVJMklwE5q3MfW56-rXJcfgLoXfEJY' \
+  -H 'content-length: 312' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Certainly move cell sit remember.","maxScore":77,"minScore":2,"description":"Say control site I mission military. News usually road hear all station girl network.","estimatedTime":"8 weeks","previewFileId":"e6159fcf-71b9-4e7c-b807-cf2d1e834fd6","createdByUserId":"8ffed9dc-4c14-410c-b654-e407e57cf4be"}'

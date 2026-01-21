@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTIxVDE3OjAxOjUyLjM1MjEyMCIsInVzZXJfaWQiOiI4Y2NhZWQ4ZC1lMzZmLTQ1OGItODQ3Ni03ODk3OTUxYjRlNGYifQ.m9lnyUgvHOvc6MXOzuhsnkFB4CvZ9Y-2CTR31oY32TI' \
+  -H 'content-length: 389' \
+  -H 'content-type: application/json' \
+  -d '{"title":"End business should meet beyond century art.","maxScore":69,"minScore":3,"description":"Since down not the upon yeah research. Skill idea base brother institution discover. Relate lead fact whole nice all. Account accept character respond.","estimatedTime":"6 weeks","previewFileId":"95e176d0-c72d-4af4-9cef-aab80a27c280","createdByUserId":"8ccaed8d-e36f-458b-8476-7897951b4e4f"}'

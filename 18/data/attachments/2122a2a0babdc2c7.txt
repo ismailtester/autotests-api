@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTIxVDE3OjAxOjUzLjU1MTUxMyIsInVzZXJfaWQiOiI1YmUxODNjNS1kMzQ0LTQ2MGQtODc2OS1lMzlhMzlmZWQ2M2MifQ.Mu6syTL7zxMISQnP4Ie-BeMOaUChu8jm76HQEEI15p8' \
+  -H 'content-length: 433' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Tend production agree throw wind computer board popular.","maxScore":99,"minScore":1,"description":"Think hundred check themselves visit community establish. Pm enjoy build off final. You blood card hospital hospital help finish on.\nStage view bed. Through recent them sell provide.","estimatedTime":"1 weeks","previewFileId":"bca40646-89cc-4ce0-86d6-bb897a228d3f","createdByUserId":"5be183c5-d344-460d-8769-e39a39fed63c"}'
